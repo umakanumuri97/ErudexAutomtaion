@@ -1,0 +1,101 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ErudexLoginTest {
+    private static WebDriver driver;
+
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "/Users/kanumuriuma/Downloads/chromedriver_mac_arm64/chromedriver");
+
+        // Create a new instance of the Chrome driver
+        driver = new ChromeDriver();
+
+        // Launch the Erudex login page
+        driver.get("https://app.erudex.com/");
+
+        // Perform login
+        login("ind.data1", "ind.data1");
+
+        // Verify login result
+        boolean isLoginSuccessful = isDashBoardPage();
+        if (isLoginSuccessful) {
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Login failed");
+        }
+
+        // Close the browser
+        driver.quit();
+    }
+
+    private static void login(String username, String password) {
+        
+        WebElement usernameInput = driver.findElement(By.id("username"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
+
+       
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+
+       
+        //WebElement loginButton = driver.findElement(Vale));
+        //WebElement loginButton = driver.findElement(By.name("login"));
+        WebElement loginButton = driver.findElement(By.name("login"));
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+		loginButton.click();
+
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        
+    }
+
+    private static boolean isDashBoardPage() {
+        
+        String title = driver.getTitle();
+        System.out.println("Title of the page is: " + title);
+
+        return title.equals("Erudex App");
+    }
+    private static boolean checkAlreadyLoggedin() {
+
+		boolean present = false;
+		try {
+			// Find the paragraph element and get its text
+			// Message
+			String msg = "You are already logged in elsewhere.<br>Do you want to login here instead?";
+			WebElement paragraph = driver.findElement(By.cssSelector(".ng-binding"));
+			String paragraphText = paragraph.getText();
+			System.out.println("Paragraph text: " + paragraphText);
+			if (paragraphText == "You are already logged in elsewhere.<br>Do you want to login here instead?") {
+				present = true;
+			}
+		} catch (NoSuchElementException e) {
+			System.out.println("Paragraph not found.");
+		}
+
+		try {
+			// Try to find and click the "No" button
+			WebElement noButton = driver.findElement(By.cssSelector(".button.alert.radius"));
+			present = true;
+		} catch (NoSuchElementException e) {
+			System.out.println("No button not found.");
+			present = false;
+		}
+
+		try {
+			// Try to find and click the "Yes" button
+			WebElement yesButton = driver.findElement(By.cssSelector(".button.success.radius"));
+			present = true;
+		} catch (NoSuchElementException e) {
+			present = false;
+			System.out.println("Yes button not found.");
+		}
+
+		return present;
+	}
+}

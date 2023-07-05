@@ -1,0 +1,5 @@
+package com.erudex.selenium.pages.admin;
+
+public class AdminDashBoard {
+
+}

@@ -1,0 +1,94 @@
+package com.erudex.selenium.pages.main;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.erudex.selenium.pages.common.LoginPage;
+import com.erudex.selenium.pages.common.PopUpPage;
+
+import com.erudex.selenium.pages.student.*;
+
+
+public class LoginTest {
+	private static WebDriver driver;
+
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "/Users/kanumuriuma/Downloads/chromedriver_mac_arm64/chromedriver");
+
+        // Create a new instance of the Chrome driver
+        ChromeDriver driver = new ChromeDriver();
+
+        // Launch the Erudex login page
+        driver.get("https://app.erudex.com/");
+        LoginPage loginPage = new LoginPage(driver);
+        PopUpPage popupPage =new PopUpPage(driver);
+        //StudentDashBoardTest stuDashBoardPage = new StudentDashBoardTest();
+        StudentDashBoardTest stuDashBoardPage = new StudentDashBoard(driver);
+
+        
+        boolean isPageUrlCorrect = loginPage.verifyPageUrl();
+        
+        boolean verifyPageLoaded = loginPage.verifyPageLoaded();
+        System.out.println("*************************************");
+        System.out.println(verifyPageLoaded);
+        loginPage.fill();
+        loginPage.waitForLoginButtonClickable();
+        loginPage.submit();
+        try {
+			Thread.sleep(40000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//        if (popupPage.isPopUpDisplayed()) {
+//            // Popup is displayed, handle user interaction
+//            Scanner scanner = new Scanner(System.in);
+//            System.out.println("You are already logged in elsewhere. Do you want to login here instead? (Other session will be logged out)");
+//            System.out.println("Enter 'yes' to proceed or 'no' to cancel: ");
+//            String userInput = scanner.nextLine();
+//
+//            if (userInput.equalsIgnoreCase("yes")) {
+//                popupPage.clickYesButton();
+//            } else if (userInput.equalsIgnoreCase("no")) {
+//                popupPage.clickNoButton();
+//            } else {
+//                System.out.println("Invalid input. Canceling login.");
+//                popupPage.clickNoButton();
+//            }
+//        }
+        
+        boolean isAlreadyLoggedIn = popupPage.checkAlreadyLoggedIn();
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(isAlreadyLoggedIn);
+        if (isAlreadyLoggedIn) {
+        	System.out.println("################################################");
+        	System.out.println(isAlreadyLoggedIn);
+        	System.out.println("hererhehehehehehehehehehe");
+        	popupPage.handlePopup();
+        	if (popupPage.handlePopup()) {
+        		
+        	}
+        	
+        }
+        else {
+        	if (loginPage.getUsername().contains("stu")) {
+        		
+        		
+        	}
+        	//go to dashboard based on users input here
+        }
+        
+        try {
+			Thread.sleep(40000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        driver.quit();
+    }
+
+}

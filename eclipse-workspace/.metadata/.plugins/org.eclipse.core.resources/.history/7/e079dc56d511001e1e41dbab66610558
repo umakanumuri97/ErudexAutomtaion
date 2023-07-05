@@ -1,0 +1,138 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginPage {
+    private ChromeDriver driver;
+
+    @FindBy(id = "username")
+    @CacheLookup
+    private WebElement usernameField;
+
+    @FindBy(id = "password")
+    @CacheLookup
+    private WebElement passwordField;
+
+    @FindBy(name = "login")
+    @CacheLookup
+    private WebElement loginButton;
+
+    private String pageLoadedText = "<title>Login</title>";
+
+    private int timeout = 10;
+
+    private String pageUrl = "https://app.erudex.com/";
+
+    public LoginPage(ChromeDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    public void setUsernameTextField(String username) {
+        usernameField.sendKeys(username);
+    }
+    
+
+
+    public void setPasswordTextField(String password) {
+        passwordField.sendKeys(password);
+    }
+    
+
+    public void submit() {
+        loginButton.click();
+    }
+
+    
+    public LoginPage fill() {
+        setUsernameTextField("ind.data1");
+        setPasswordTextField("ind.data1");
+        return this;
+    }
+    
+    public LoginPage fillAndSubmit() {
+        fill();
+        submit();
+        return this;
+    }
+
+   
+//    public LoginPage verifyPageLoaded() {
+//        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+//            public Boolean apply(WebDriver d) {
+//                return d.getPageSource().contains(pageLoadedText);
+//            }
+//        });
+//        return this;
+//    }
+    public boolean verifyPageLoaded() {
+    	return driver.getTitle().contains("Login");
+//        new WebDriverWait(driver, timeout).until(ExpectedConditions.titleContains("Login"));
+//        return this;
+    }
+
+    public boolean verifyPageUrl() {
+//        new WebDriverWait(driver, timeout).until(ExpectedConditions.urlContains(pageUrl));
+//        return this;
+    	return driver.getCurrentUrl().contains(pageUrl);
+    }
+    public void waitForLoginButtonClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+    }
+    public boolean checkAlreadyLoggedin() {
+        boolean present = false;
+        try {
+            // Find the paragraph element and get its text
+            // Message
+            String msg = "You are already logged in elsewhere.<br>Do you want to login here instead?";
+            WebElement paragraph = driver.findElement(By.cssSelector(".ng-binding"));
+            String paragraphText = paragraph.getText();
+            System.out.println("Paragraph text: " + paragraphText);
+            if (paragraphText.equals(msg)) {
+                present = true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Paragraph not found.");
+        }
+
+        try {
+            // Try to find and click the "No" button
+            WebElement noButton = driver.findElement(By.cssSelector(".button.alert.radius"));
+            present = true;
+        } catch (NoSuchElementException e) {
+            System.out.println("No button not found.");
+            present = false;
+        }
+
+        try {
+            // Try to find and click the "Yes" button
+            WebElement yesButton = driver.findElement(By.cssSelector(".button.success.radius"));
+            yesButton.click();
+            present = true;
+        } catch (NoSuchElementException e) {
+            present = false;
+            System.out.println("Yes button not found.");
+        }
+
+        return present;
+    }
+    
+//    public LoginPage verifyPageUrl() {
+//        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+//            public Boolean apply(WebDriver d) {
+//                return d.getCurrentUrl().contains(pageUrl);
+//            }
+//        });
+//        return this;
+//    }
+}

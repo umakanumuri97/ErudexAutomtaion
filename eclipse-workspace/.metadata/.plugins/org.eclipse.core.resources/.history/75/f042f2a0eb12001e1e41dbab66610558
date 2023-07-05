@@ -1,0 +1,7 @@
+webdriver.chrome.driver=/Users/kanumuriuma/Downloads/chromedriver
+erudex.users.file=/Users/kanumuriuma/Downloads/indus_users.xlsx
+erudex.login.url=https://app.erudex.com/
+erudex.student.url=https://app.erudex.com/v2/index.html#/view-lessons
+erudex.teacher.url=https://app.erudex.com/v2/index.html#/ar-resources
+erudex.dataentry.url=https://app.erudex.com/data-entry/index.html#/
+erudex.admin.url=https://app.erudex.com/admin/index.html#/

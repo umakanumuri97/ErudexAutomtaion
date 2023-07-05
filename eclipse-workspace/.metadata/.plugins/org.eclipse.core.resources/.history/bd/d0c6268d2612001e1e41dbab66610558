@@ -1,0 +1,159 @@
+package com.erudex.selenium.pages.common;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class PopUpPage {
+	private ChromeDriver driver;
+	
+//	@FindBy(css = ".ng-binding")
+//	private WebElement messageElement;
+	
+	@FindBy(xpath = "//p[@ng-bind-html='message' and contains(@class, 'ng-binding')]")
+	private WebElement messageElement;
+
+	@FindBy(css = "div.button.alert.radius[ng-click='negativeResponse()']")
+    private WebElement noButton;
+
+    @FindBy(css = "div.button.success.radius[ng-click='positiveResponse()']")
+    private WebElement yesButton;
+    
+    private String pageLoadedText = "You are already logged in elsewhere. Do you want to login here instead? (Other session will be logged out)";
+    
+    private int timeout = 10;
+    
+    private String pageUrl = "https://app.erudex.com/login";
+    
+    public PopUpPage(ChromeDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+//	public boolean checkAlreadyLoggedin() {
+//        boolean present = false;
+//        try {
+//            String msg = "You are already logged in elsewhere.<br>Do you want to login here instead?";
+//            WebElement paragraph = driver.findElement(By.cssSelector(".ng-binding"));
+//            String paragraphText = paragraph.getText();
+//            System.out.println("Paragraph text: " + paragraphText);
+//            if (paragraphText.equals(msg)) {
+//                present = true;
+//            }
+//        } catch (NoSuchElementException e) {
+//            System.out.println("Paragraph not found.");
+//        }
+//        WebDriverWait wait = new WebDriverWait(driver, timeout);
+//
+//        try {
+//            // Try to find and click the "No" button
+//        	WebElement noButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".button.alert.radius")));
+//            present = true;
+//        } catch (NoSuchElementException e) {
+//            System.out.println("No button not found.");
+//            present = false;
+//        }
+//
+//        try {
+//            // Try to find and click the "Yes" button
+//        	WebElement yesButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".button.success.radius")));
+//            //WebElement yesButton = driver.findElement(By.cssSelector(".button.success.radius"));
+//            yesButton.click();
+//            present = true;
+//        } catch (NoSuchElementException e) {
+//            present = false;
+//            System.out.println("Yes button not found.");
+//        }
+//
+//        return present;
+//    }
+//    public boolean isPopUpDisplayed() {
+//        try {
+//        	WebDriverWait wait = new WebDriverWait(driver, timeout);
+//        	
+//            //WebElement popUpElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".text-center")));
+//            //WebElement popUpElement = driver.findElement(By.cssSelector(".text-center"));
+//            WebElement messageElement = driver.findElement(By.className("ng-binding"));
+//
+//            System.out.println("&&&&&&&&&&&&&&&&&");
+//            System.out.println("&&&&&&&&&&&&&&&&&");
+//            System.out.println("&&&&&&&&&&&&&&&&&");
+//            System.out.println(messageElement);
+//            System.out.println(messageElement.isDisplayed());
+//            return messageElement.isDisplayed();
+//        } catch (NoSuchElementException e) {
+//            return false;
+//        }
+//    }
+
+    public void clickNoButton() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        WebElement noButtonElement = wait.until(ExpectedConditions.elementToBeClickable(noButton));
+        noButtonElement.click();
+    }
+
+    public void clickYesButton() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        WebElement yesButtonElement = wait.until(ExpectedConditions.elementToBeClickable(yesButton));
+        yesButtonElement.click();
+    }
+
+    public boolean checkAlreadyLoggedIn() {
+        boolean present = false;
+        try {
+            String expectedMessage = "You are already logged in elsewhere. Do you want to login here instead? (Other session will be logged out)";
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            WebElement paragraph = wait.until(ExpectedConditions.visibilityOf(messageElement));
+            //System.out.println(paragraph.getText());
+            
+            //WebElement messageElement = driver.findElement(By.cssSelector(".ng-binding"));
+            String messageText = messageElement.getText();
+            //WebElement paragraphi = driver.findElement(By.cssSelector(".ng-binding"));
+            String paragraphText = paragraph.getText();
+            System.out.println("kunkyunkyun");
+            System.out.println(paragraphText);
+            System.out.println("messagebelow");
+            System.out.println(messageText);
+            System.out.println(expectedMessage);
+            //System.out.println("paragraphText: " + paragraphText);
+            if (paragraphText.matches(".*" + pageLoadedText + ".*")) {
+                present = true;
+            }
+            
+//            if (paragraphText.trim().contains(expectedMessage.trim())) {
+//            	System.out.println("littlelittle");
+//                present = true;
+//                
+//            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Message not found.");
+        }
+
+        return present;
+    }
+    
+    public void handlePopup() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Popup detected. Do you want to proceed? (Yes/No)");
+        String input = scanner.nextLine().toLowerCase();
+        if (input.equals("yes")) {
+        	System.out.println("yesyesyesyesyesyesyeys");
+            clickYesButton();
+        } else if (input.equals("no")) {
+            clickNoButton();
+        } else {
+            System.out.println("Invalid input. Please try again.");
+        }
+        scanner.close();
+    }
+    
+    
+
+}

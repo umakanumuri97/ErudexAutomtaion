@@ -1,0 +1,5 @@
+package com.erudex.selenium.pages.student;
+
+public class StudentDashBoard {
+
+}

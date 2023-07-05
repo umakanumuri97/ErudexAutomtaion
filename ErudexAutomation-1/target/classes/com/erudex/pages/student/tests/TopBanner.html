@@ -1,0 +1,189 @@
+<div class="columns top-banner">
+  <div class="subject-select-wrapper filter-wrapper">
+    <div class="flex align-items-center mb-1r">
+      <h4>Tests</h4>
+      <div class="tests-toggle ng-hide" ng-show="selectedCourseGrade.isCompetitive">
+        <input id="radio-1" class="toggle toggle-left" name="toggle" type="radio" ng-checked="!showMockTests"
+          ng-click="toggleAssessmentType('teacher')" checked="checked">
+        <label for="radio-1" class="toggle-btn">Subject</label>
+        <input id="radio-2" class="toggle toggle-right" name="toggle" type="radio" ng-checked="showMockTests"
+          ng-click="toggleAssessmentType('mock')">
+        <label for="radio-2" class="toggle-btn">Mock</label>
+        <span class="glider"></span>
+      </div>
+    </div>
+    <div class="curriculum-top-bar-selects-wrapper">
+      <!-- ngInclude: '../v2/template/common/curriculum-drop-down.html' -->
+      <div ng-include="'../v2/template/common/curriculum-drop-down.html'" class="ng-scope">
+        <div class="curriculum-language-select ng-scope"
+          ng-show="!isDataEntry &amp;&amp; !isSupervisor &amp;&amp; !isOrgUser"
+          ng-class="{'language-enabled':selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')}">
+          <select ui-nice-select="" ng-show="!currentState.name.toLowerCase().includes('reports')"
+            ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true"
+            ng-model="gradeId"
+            ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in gradeOptions"
+            class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown"
+            style="display: none;" required="required">
+            <option value="" disabled="disabled" selected="selected" class="">Select</option>
+            <option label="CBSE-1" value="number:45">CBSE-1</option>
+            <option label="CBSE-2" value="number:46">CBSE-2</option>
+            <option label="CBSE-3" value="number:13">CBSE-3</option>
+            <option label="CBSE-4" value="number:14">CBSE-4</option>
+            <option label="CBSE-5" value="number:15">CBSE-5</option>
+            <option label="CBSE-6" value="number:16">CBSE-6</option>
+            <option label="CBSE-7" value="number:17">CBSE-7</option>
+            <option label="CBSE-8" value="number:18">CBSE-8</option>
+            <option label="CBSE-9" value="number:19">CBSE-9</option>
+            <option label="CBSE-10" value="number:20" selected="selected">CBSE-10</option>
+          </select>
+          <div
+            class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown"
+            tabindex="0"><span class="current">CBSE-10</span>
+            <ul class="list">
+              <li data-value="" class="option disabled">Select</li>
+              <li data-value="number:45" class="option">CBSE-1</li>
+              <li data-value="number:46" class="option">CBSE-2</li>
+              <li data-value="number:13" class="option">CBSE-3</li>
+              <li data-value="number:14" class="option">CBSE-4</li>
+              <li data-value="number:15" class="option">CBSE-5</li>
+              <li data-value="number:16" class="option">CBSE-6</li>
+              <li data-value="number:17" class="option">CBSE-7</li>
+              <li data-value="number:18" class="option">CBSE-8</li>
+              <li data-value="number:19" class="option">CBSE-9</li>
+              <li data-value="number:20" class="option selected">CBSE-10</li>
+            </ul>
+          </div>
+
+          
+          <select ui-nice-select="" ng-show="currentState.name.toLowerCase().includes('reports')"
+            ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true"
+            ng-model="gradeId"
+            ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in reportGradeOptions"
+            class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown"
+            style="display: none;" required="required">
+            <option value="" disabled="disabled" selected="selected" class="">Select</option>
+          </select>
+          <div
+            class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown"
+            tabindex="0"><span class="current">Select</span>
+            <ul class="list">
+              <li data-value="" class="option selected disabled">Select</li>
+            </ul>
+          </div>
+          <div ng-show="selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')"
+            class="ng-hide">
+            <select ui-nice-select="" ng-change="setCurriculumLanguage(selectedLanguage)"
+              ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-required="true" ng-model="selectedLanguage"
+              ng-options="o.value as o.name for o in selectedLanguageOptions.options"
+              class="language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required"
+              style="display: none;" required="required">
+              <option value="" disabled="disabled" selected="selected" class="">Select Language</option>
+            </select>
+            <div
+              class="nice-select language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required"
+              tabindex="0"><span class="current">Select Language</span>
+              <ul class="list">
+                <li data-value="" class="option selected disabled">Select Language</li>
+              </ul>
+            </div>
+          </div>
+        </div>        
+        </div>
+      </div>
+    </div>
+    <div class="has-create-btn subject-wrapper" ng-show="!showMockTests">
+      <ul>
+        <!-- ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-0" class="ng-binding">
+            AP-Telugu
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-1" class="ng-binding">
+            English
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-2" class="ng-binding">
+            Hindi
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-3" class="ng-binding">
+            Mathematics
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-4" class="ng-binding">
+            Sanskrit
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-5" class="ng-binding">
+            Science
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope active more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-6" class="ng-binding">
+            Social Science
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-7" class="ng-binding">
+            Telugu
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+        <li ng-repeat="subInfo in subjects | orderBy: 'subject.name'"
+          ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}"
+          class="ng-scope more-subjects">
+          <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-8" class="ng-binding">
+            TS-Telugu
+          </div>
+        </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+      </ul>
+    </div>
+    <div class="subject-wrapper ng-hide" ng-show="selectedCourseGrade.isCompetitive &amp;&amp; showMockTests">
+      <ul>
+        <!-- ngRepeat: item in testTypes -->
+        <li ng-repeat="item in testTypes"
+          ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}"
+          ng-click="filterByTestType(item.value, false, $index)" id="T-0" class="ng-scope">
+          <div class="ng-binding">
+            Part Tests
+          </div>
+        </li><!-- end ngRepeat: item in testTypes -->
+        <li ng-repeat="item in testTypes"
+          ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}"
+          ng-click="filterByTestType(item.value, false, $index)" id="T-1" class="ng-scope">
+          <div class="ng-binding">
+            Full Tests
+          </div>
+        </li><!-- end ngRepeat: item in testTypes -->
+        <li ng-repeat="item in testTypes"
+          ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}"
+          ng-click="filterByTestType(item.value, false, $index)" id="T-2" class="ng-scope">
+          <div class="ng-binding">
+            Grand Tests
+          </div>
+        </li><!-- end ngRepeat: item in testTypes -->
+      </ul>
+    </div>
+  </div>
+</div>

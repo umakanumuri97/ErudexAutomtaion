@@ -1,0 +1,2622 @@
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><head lang="en"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0">
+  <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+  <meta http-equiv="Pragma" content="no-cache">
+  <title>Erudex App</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=dex">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png?v=dex">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png?v=dex">
+<link rel="manifest" href="/icons/site.webmanifest?v=dex">
+<link rel="mask-icon" href="/icons/safari-pinned-tab.svg?v=dex" color="#224d88">
+<link rel="shortcut icon" href="/icons/favicon.ico?v=dex">
+<meta name="apple-mobile-web-app-title" content="Erudex">
+<meta name="application-name" content="Erudex">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="/icons/browserconfig.xml?v=dex">
+<meta name="theme-color" content="#2b5797">
+
+
+
+  <link rel="stylesheet" href="../css/libs/v2-lib.min.21d485c2.css" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="../css/student.min.43ce3417.css">
+
+  <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/b7910ca8/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script src="../js/libs/v2-jquery-bundle.min.a99ca87e.js" type="text/javascript"></script>
+
+  <script src="../js/libs/v2-angular-bundle.min.4fc9ceb2.js" type="text/javascript"></script><style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+.apexcharts-canvas.apexcharts-theme-dark {
+  background: #343F57;
+}
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-gridline, .apexcharts-text, .apexcharts-yaxis-annotations, .apexcharts-xaxis-annotations, .apexcharts-point-annotations {
+  pointer-events: none;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30,30,30, 0.8);
+}
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line {
+  pointer-events: none;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-z-label:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+.apexcharts-tooltip-series-group.apexcharts-active, .apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+.apexcharts-tooltip-series-group-hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0 !important;
+}
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+.apexcharts-tooltip-candlestick {
+  padding: 4px 8px;
+}
+.apexcharts-tooltip-candlestick > div {
+  margin: 4px 0;
+}
+.apexcharts-tooltip-candlestick span.value {
+  font-weight: bold;
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px;
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777;
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-xaxistooltip:after, .apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-left: -6px;
+}
+.apexcharts-xaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after, .apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-top:after, .apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color:#ECEFF1
+}
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
+  border-top-color:rgba(0, 0, 0, 0.5);
+}
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-yaxistooltip:after, .apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.apexcharts-yaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-top: -6px;
+}
+.apexcharts-yaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after, .apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+
+.apexcharts-yaxistooltip-right:after, .apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1;
+}
+.apexcharts-yaxistooltip-hidden {
+  display: none;
+}
+
+.apexcharts-xcrosshairs, .apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.apexcharts-active, .apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-zoom-rect {
+  pointer-events: none;
+}
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_points, .svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+.svg_select_points_l, .svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+  fill: #888;
+}
+.apexcharts-canvas.apexcharts-zoomable .hovering-zoom {
+  cursor: crosshair
+}
+.apexcharts-canvas.apexcharts-zoomable .hovering-pan {
+  cursor: move
+}
+
+.apexcharts-xaxis,
+.apexcharts-yaxis {
+  pointer-events: none;
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-zoom-in-icon,
+.apexcharts-zoom-out-icon,
+.apexcharts-reset-zoom-icon,
+.apexcharts-pan-icon,
+.apexcharts-selection-icon,
+.apexcharts-menu-icon,
+.apexcharts-toolbar-custom-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6E8192;
+  text-align: center;
+}
+
+
+.apexcharts-zoom-icon svg,
+.apexcharts-zoom-in-icon svg,
+.apexcharts-zoom-out-icon svg,
+.apexcharts-reset-zoom-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoom-in-icon svg,
+.apexcharts-theme-dark .apexcharts-zoom-out-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg{
+  fill: #f3f4f5;
+}
+
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+  fill: #008FFB;
+}
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-in-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoom-out-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-zoom-icon:hover svg,
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon, .apexcharts-menu-icon {
+  position: relative;
+}
+.apexcharts-reset-zoom-icon {
+  margin-left: 5px;
+}
+.apexcharts-zoom-icon, .apexcharts-reset-zoom-icon, .apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoom-in-icon, .apexcharts-zoom-out-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoom-out-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008FFB;
+}
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  top: 0px;
+  right: 3px;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apexcharts-toolbar svg {
+  pointer-events: none;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee;
+}
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-toolbar {
+    /*opacity: 0;*/
+  }
+
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  }
+}
+
+.apexcharts-datalabel.apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabels, .apexcharts-datalabel, .apexcharts-datalabel-label, .apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events, .apexcharts-radar-series path, .apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Resize generated styles */
+@keyframes resizeanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resize-triggers, .resize-triggers > div, .contract-trigger:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resize-triggers > div {
+  background: #eee;
+  overflow: auto;
+}
+
+.contract-trigger:before {
+  width: 200%;
+  height: 200%;
+}
+</style>
+
+  <script src="../js/libs/v2-other-bundle.min.bf2ef4ed.js" type="text/javascript"></script><meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge-only"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large-only"><meta class="foundation-mq-large"><meta class="foundation-mq-medium-only"><meta class="foundation-mq-medium"><meta class="foundation-mq-small-only"><meta class="foundation-mq-small"><style></style>
+
+  <!-- PDF.js -->
+  <script type="text/javascript" src="../js/libs/pdfjs/pdf.js"></script>
+  <!-- MathJax -->
+  <script type="text/javascript" src="../js/libs/mathjax-2.7/MathJax.js?config=custom-TeX-AMS_HTML,custom"></script>
+  <!-- Katex -->
+  <script type="text/javascript" src="../js/libs/katex/katex.min.js"></script>
+  <script type="text/javascript" src="../js/libs/katex/auto-render.min.js"></script>
+  <script type="text/javascript" src="../js/libs/katex/angular-katex.min.js"></script>
+  <!-- underscore -->
+  <script type="text/javascript" src="../js/libs/underscore/underscore.min.9a96eabb.js"></script>
+  <!-- Inline declare templates module -->
+  <script>
+    angular.module('templates', []);
+  </script>
+  <script type="text/javascript" src="../templates/v2-template.min.a4a68b87.js"></script>
+<script type="text/javascript" src="../templates/student-template.min.ae0d7a33.js"></script>
+<script type="text/javascript" src="../templates/student-modal.min.3f7c9c50.js"></script>
+<script type="text/javascript" src="../templates/common-template.min.111343db.js"></script>
+
+
+  <script src="../js/v2-browser.min.e1417197.js" type="text/javascript"></script>
+
+<meta class="erudex-mq-mobile-only"><meta class="erudex-mq-tab-10"><meta class="foundation-mq-topbar"><meta class="foundation-mq-topbar"><meta class="foundation-mq-small"><meta class="foundation-mq-medium"><meta class="foundation-mq-large"><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<!--<![endif]-->
+<!-- ngInclude: '../v2/template/body.html' --><body ng-app="erudex.v2App" ng-controller="MainController" ng-include="'../v2/template/body.html'" class="online-user erudex ng-scope" ng-class="{'has-copyright':showPoweredBy, 'tgsb-user': isTgsbUser &amp;&amp; currentState.name.toLowerCase().includes('v2-sb-quiz-viewer')}"><div id="MathJax_Message" style="display: none;"></div><div class="off-canvas-wrap ng-scope ng-isolate-scope">
+  <div class="inner-wrap" ng-class="{'full-width' : hideLeftNav, 'hide-notification' : isTeacher}">
+    <!-- ngInclude: '../v2/template/top-bar.html' --><nav id="topNavBar" class="tab-bar ng-scope" ng-include="'../v2/template/top-bar.html'"><nav class="tab-bar hide-for-medium-up ng-scope">
+  <!-- ngIf: showBackArrow -->
+  <!-- ngIf: !hideLeftNav --><section class="middle ng-scope" style="padding: .25rem" ng-if="!hideLeftNav">
+    <img ng-src="../img/icons/company-logo.png" alt="Erudex" src="../img/icons/company-logo.png">
+  </section><!-- end ngIf: !hideLeftNav -->
+  <section class="user-info">
+    <div class="students-select ng-hide" ng-show="isGuardian">
+      <select ui-nice-select="" ng-show="user.studentRelations.length > 1" ng-change="onChangeStudentRelation(selectedStudentRelation)" ng-required="true" ng-model="selectedStudentRelation" ng-options="(user.studentName || user.studentUserName) for user in user.studentRelations" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" required="required" style="display: none;"><option value="" disabled="disabled" selected="selected" class="">Select Student</option></select><div class="nice-select ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" tabindex="0"><span class="current">Select Student</span><ul class="list"><li data-value="" class="option selected disabled">Select Student</li></ul></div>
+      <div ng-show="user.studentRelations.length === 1" class="ng-binding ng-hide"></div>
+    </div>
+    <div ng-show="isTgsbUser" class="fs-14 ng-binding ng-hide" ng-style="hideLeftNav ? {'width': '18rem', 'text-align': 'left', 'padding': '0 35px'} : {'width': '12rem', 'text-align': 'center', 'padding': '0 2px'}" style="line-height: 1.25; width: 12rem; text-align: center; padding: 0px 2px;" ng-bind-html="pageTitle"></div>
+  </section>
+  <section class="right">
+    <i ng-click="toggleNotificationsPopover(true, true)" class="fa fa-bell-o badge-wrapper" ng-hide="isTeacher" style="padding: .5rem">
+      <span ng-show="notificationsSharedService.unreadNotificationsCount > 0" class="badge ng-binding">2</span>
+    </i>
+    <i ng-click="logout()" class="v2-icon-logout" style="padding: .25rem"></i>
+  </section>
+</nav>
+<section class="left height-100p hide-for-small-down ng-scope">
+
+  <div class="height-100p">
+    <!-- ngIf: showBackArrow -->
+    <div class="height-100p">
+      <!-- ngIf: !hideLeftNav --><a class="left top-bar-logo-wrapper ng-scope" ng-if="!hideLeftNav">
+        <img ng-src="../img/icons/company-logo.png" alt="Erudex" src="../img/icons/company-logo.png">
+      </a><!-- end ngIf: !hideLeftNav -->
+      <div class="left top-bar-divider"><span></span></div>
+      <div class="left top-bar-user-container" style="">
+        <span class="top-bar-user-name ng-binding" ng-click="showUserInfoDialog()" ng-show="!isGuardian">
+          ind iit stu 1 i <!-- ngIf: isTgsbUser -->
+        </span>
+        <div class="students-select ng-hide" ng-show="isGuardian">
+          <select ui-nice-select="" ng-show="user.studentRelations.length > 1" ng-change="onChangeStudentRelation(selectedStudentRelation)" ng-required="true" ng-model="selectedStudentRelation" ng-options="(user.studentName || user.studentUserName) for user in user.studentRelations" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" required="required" style="display: none;"><option value="" disabled="disabled" selected="selected" class="">Select Student</option></select><div class="nice-select ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" tabindex="0"><span class="current">Select Student</span><ul class="list"><li data-value="" class="option selected disabled">Select Student</li></ul></div>
+          <div ng-show="user.studentRelations.length === 1" class="ng-binding ng-hide"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="middle tab-bar-section ng-scope" ng-style="isTgsbUser &amp;&amp; {'width': '20rem', 'left': '25rem'}">
+  <span class="show-for-medium-up ng-binding" ng-bind-html="pageTitle"></span>
+</section>
+<!-- ngIf: !hideLeftNav --><section class="right height-100p hide-for-small-down ng-scope" ng-if="!hideLeftNav">
+  <a class="right top-bar-icon ng-scope" ng-click="logout()" tooltip="Logout" tooltip-placement="left" tooltip-animation="false">
+    <i class="v2-icon-logout"></i>
+  </a>
+  <a class="right top-bar-icon ng-scope" ng-hide="isTeacher" ng-click="toggleNotificationsPopover(true, true)" tooltip="Notifications" tooltip-placement="left" tooltip-animation="false">
+    <i class="fa fa-bell-o badge-wrapper">
+      <span ng-show="notificationsSharedService.unreadNotificationsCount > 0" class="badge ng-binding">2</span>
+    </i>
+  </a>
+</section><!-- end ngIf: !hideLeftNav -->
+<a class="exit-off-canvas ng-scope"></a>
+</nav>
+    <div class="row fill-height-topbar main-content-row block-ui-main ng-scope block-ui block-ui-anim-fade" block-ui="main" aria-busy="false">
+      <!-- ngInclude: '../v2/template/left-nav.html' --><aside class="left-off-canvas-menu hide-for-small ng-scope" style="background-color:#FFF" ng-hide="hideLeftNav" ng-include="'../v2/template/left-nav.html'" ng-click="showSubMenu('');"><ul class="off-canvas-list side-nav e-icon-side-nav ng-scope" ng-show="!isTgsbUser">
+  <li class="curriculum ng-hide" ui-sref="v2-dashboard" ng-show="isDataEntry" ng-class="{'active': (currentState.name.includes('dashboard') || currentState.name.includes('reports'))}" href="#/dashboard">
+    <a class="has-tip radius">
+      <i class="v2-icon-home"> </i>
+    </a>
+    <span>Home</span>
+  </li>
+  <li class="curriculum ng-hide" ui-sref="v2-liveClasses" ui-sref-active="active" ng-hide="disableModule.liveclasses || isMobile" href="#/view-live-classes">
+    <a class="has-tip radius">
+      <i class="v2-icon-classes"> </i>
+    </a>
+    <span>Classes</span>
+  </li>
+
+  <li class="curriculum ng-hide" ui-sref="v2-curriculum" ui-sref-active="active" ng-show="isTeacher &amp;&amp; !disableModule.curriculum &amp;&amp; courseGradeIds.length > 0" href="#/view-lessons">
+    <a class="has-tip radius">
+      <i class="v2-icon-lessons"> </i>
+    </a>
+    <span>Lessons</span>
+  </li>
+
+  <li class="curriculum" ui-sref="v2-curriculum" ui-sref-active="active" ng-show="!isDataEntry &amp;&amp; !isTeacher &amp;&amp; !isGuardian &amp;&amp; !disableModule.studentCurriculum &amp;&amp; courseGradeIds.length > 0" href="#/view-lessons">
+    <a class="has-tip radius">
+      <i class="v2-icon-lessons"> </i>
+    </a>
+    <span>Lessons</span>
+  </li>
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-t-tests" ng-class="{'active':(currentState.name == 'v2-t-tests') || (currentState.name == 'v2-t-view-test')}" ng-hide="disableModule.assessment || !isTeacher" href="#/view-t-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+  <li class="reports has-dropdown ng-hide active" ui-sref="v2-tests" ng-class="{'active':currentState.name.includes('test')}" ng-hide="disableModule.assessment || !isDataEntry">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+  <li class="reports has-dropdown active" ui-sref="v2-s-tests" ui-sref-active="active" ng-class="{'active':currentState.name.includes('tests') &amp;&amp; !currentState.name.includes('v2-sb-tests')}" ng-hide="disableModule.assessment || isTeacher || isDataEntry" href="#/view-s-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-questions" ui-sref-active="active" ng-class="{'active':currentState.name.indexOf('questions')>-1}" ng-hide="disableModule.assessment || !isDataEntry" href="#/view-questions">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Questions</span>
+  </li>
+
+  <li ui-sref="performanceReports" ui-sref-active="active" ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || isTeacher || isDataEntry" href="#/performance-reports" class="">
+    <a class="has-tip radius">
+      <i class="v2-icon-reports"> </i>
+    </a>
+    <span>Reports</span>
+  </li>
+
+  <li ui-sref="teacherReports" ui-sref-active="active" ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || !isTeacher || isDataEntry" ng-class="{'active':currentState.name.indexOf('reports')>-1}" href="#/reports" class="ng-hide">
+    <a class="has-tip radius">
+      <i class="v2-icon-reports"> </i>
+    </a>
+    <span>Reports</span>
+  </li>
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-t-assignments" ng-class="{'active':currentState.name.indexOf('assignment')>-1}" ng-hide="disableModule.assignment || isDataEntry || !isTeacher || isMobile" href="#/view-t-assignments">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Assignments</span>
+  </li>
+
+  <li class="reports has-dropdown" ui-sref="v2-s-assignments" ng-class="{'active':currentState.name.indexOf('assignment')>-1}" ng-hide="disableModule.assignment || isDataEntry || isTeacher || isMobile" href="#/view-s-assignments">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Assignments</span>
+  </li>
+  <!-- ngIf: !isMobile --><li class="reports has-dropdown ng-scope" ng-if="!isMobile" ui-sref="v2-s-timeline" ng-class="{'active':currentState.name.indexOf('timeline')>-1}" ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" href="#/timeline">
+    <a class="has-tip radius">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span>Timeline</span>
+  </li><!-- end ngIf: !isMobile -->
+  <!-- ngIf: !isMobile --><li class="reports has-dropdown ng-scope ng-hide" ng-if="!isMobile" ui-sref="v2-t-timeline" ng-class="{'active':currentState.name.indexOf('timeline')>-1}" ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" href="#/t-timeline">
+    <a class="has-tip radius">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span>Timeline</span>
+  </li><!-- end ngIf: !isMobile -->
+  <li class="reports has-dropdown ng-hide" ui-sref="ar-resources" ng-class="{'active':currentState.name.indexOf('ar-resources')>-1}" ng-hide="disableModule.curriculumAr || !isTeacher || isDataEntry" href="#/ar-resources">
+    <a class="has-tip radius">
+      <img class="image ar" src="../img/icons/ar.svg">
+    </a>
+    <span>AR</span>
+  </li>
+
+  <li class="hide-for-small ng-hide" ng-click="goToCourses()" style="padding: .5rem !important" ng-show="isECUser">
+    <a class="has-tip radius">
+      <i class="v2-icon-explorer"> </i>
+    </a>
+    <span>Courses</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-home" ng-class="{'active': currentState.name.includes('v2-sb-home')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-home">
+    <a class="has-tip radius">
+      <img class="image spelling" src="../img/spelling-bee/book.svg">
+    </a>
+    <span>Book</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-learn" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active': currentState.name.includes('v2-sb-learn')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-learn">
+    <a class="has-tip radius">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span>Learn</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-quiz" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-quiz">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Quizzes</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-tests" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.includes('sb-tests')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>SpellingBee Tests</span>
+  </li>
+
+  <!-- ngIf: !isMobile --><li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()" ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+    <a class="has-tip radius">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li><!-- end ngIf: !isMobile -->
+
+  <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+      <a class="has-tip">
+        <i class="v2-icon-menu"> </i>
+      </a>
+    <span class="show-for-small-only">More</span>
+  </li>
+
+  <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+  <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+</ul>
+<div ng-show="toggleMobileNav" class="slider-bg ng-scope ng-hide" ng-click="pageSlideClose()"></div>
+<!-- ngInclude: '../v2/template/mobile-left-nav.html' --><aside ng-include="'../v2/template/mobile-left-nav.html'" ng-show="toggleMobileNav" ng-controller="CreateClassController" class="page-slide mobile-nav ng-scope ng-hide"><ul class="bottom-nav-bar ng-scope" ng-show="!isTgsbUser">
+  <li ng-show="isECUser" ng-click="pageSlideClose();goToCourses()" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-explorer"></i>
+    </a>
+    <span>Courses</span>
+  </li>
+  <li ui-sref="v2-liveClasses" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.liveclasses" href="#/view-live-classes" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-classes"> </i>
+    </a>
+    <span class="show-for-small-only">Classes</span>
+  </li>
+  <li ui-sref="v2-s-assignments" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.assignment || isTeacher || isDataEntry" href="#/view-s-assignments" class="">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Assignments</span>
+  </li>
+  <li ui-sref="v2-t-assignments" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.assignment || !isTeacher || isDataEntry" href="#/view-t-assignments" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Assignments</span>
+  </li>
+  <li ui-sref="v2-s-timeline" ui-sref-active="active" ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" ng-click="pageSlideClose()" href="#/timeline" class="">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span class="show-for-small-only">Timeline</span>
+  </li>
+  <li ui-sref="v2-t-timeline" ui-sref-active="active" ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" ng-click="pageSlideClose()" href="#/t-timeline" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span class="show-for-small-only">Timeline</span>
+  </li>
+  <li ui-sref="v2-sb-home" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-home" class="ng-hide">
+    <a class="exit-off-canvas">
+      <img class="image ar" src="../img/spelling-bee/book.svg">
+    </a>
+    <span class="show-for-small-only">Book</span>
+  </li>
+  <li ui-sref="v2-sb-learn" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-learn" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span class="show-for-small-only">Learn</span>
+  </li>
+  <li ui-sref="v2-sb-quiz" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-quiz" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Quizzes</span>
+  </li>
+  <li ui-sref="v2-sb-tests" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-tests" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span class="show-for-small-only">SpellingBee Tests</span>
+  </li>
+  <li ng-click="pageSlideClose();openChangePasswordDialog()">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li>
+</ul>
+
+<ul class="bottom-nav-bar ng-scope ng-hide" ng-show="isTgsbUser">
+  <li ng-click="pageSlideClose();openChangePasswordDialog()">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li>
+</ul>
+
+<div class="fs-sm-14 user-details ng-scope" ng-hide="isGuardian">
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Username:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">ind.iitstu001</div>
+  </div>
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Name:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">ind iit stu 1  i</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isTgsbUser">
+    <div class="column small-5 text-right fw-600">Class:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">12</div>
+  </div>
+  <div class="row collapse" ng-show="!isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">2.1.4</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding"></div>
+  </div>
+</div>
+
+<div class="fs-sm-14 user-details ng-scope ng-hide" ng-show="isGuardian">
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Students:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left">
+      <!-- ngRepeat: user in user.studentRelations -->
+    </div>
+  </div>
+  <div class="row collapse" ng-show="!isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">2.1.4</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding"></div>
+  </div>
+</div>
+</aside>
+
+<ul class="off-canvas-list side-nav e-icon-side-nav ng-scope ng-hide" ng-show="isTgsbUser">
+  <li class="curriculum" ui-sref="v2-sb-home" ng-class="{'active': currentState.name.includes('v2-sb-home')}" href="#/v2-sb-home">
+    <a class="has-tip radius">
+      <img src="../img/spelling-bee/book.svg">
+    </a>
+    <span>Book</span>
+  </li>
+  <li class="curriculum" ui-sref="v2-sb-learn" ng-class="{'active': currentState.name.includes('v2-sb-learn')}" href="#/v2-sb-learn">
+    <a class="has-tip radius">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span>Learn</span>
+  </li>
+
+
+  <li class="reports has-dropdown" ui-sref="v2-sb-quiz" ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}" href="#/v2-sb-quiz">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Quizzes</span>
+  </li>
+
+  <li class="reports has-dropdown active" ui-sref="v2-sb-tests" ui-sref-active="active" ng-class="{'active':currentState.name.indexOf('tests')>-1}" href="#/v2-sb-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+
+  <!-- ngIf: !isMobile --><li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()" ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+    <a class="has-tip radius">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li><!-- end ngIf: !isMobile -->
+
+  <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+    <a class="has-tip">
+      <i class="v2-icon-menu"> </i>
+    </a>
+    <span class="show-for-small-only">More</span>
+  </li>
+
+  <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+  <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+</ul>
+</aside>
+      <!-- ngInclude: '../v2/template/left-nav.html' --><div class="show-for-small-only ng-scope" ng-hide="hideLeftNav" ng-include="'../v2/template/left-nav.html'"><ul class="off-canvas-list side-nav e-icon-side-nav ng-scope" ng-show="!isTgsbUser">
+  <li class="curriculum ng-hide" ui-sref="v2-dashboard" ng-show="isDataEntry" ng-class="{'active': (currentState.name.includes('dashboard') || currentState.name.includes('reports'))}" href="#/dashboard">
+    <a class="has-tip radius">
+      <i class="v2-icon-home"> </i>
+    </a>
+    <span>Home</span>
+  </li>
+  <li class="curriculum ng-hide" ui-sref="v2-liveClasses" ui-sref-active="active" ng-hide="disableModule.liveclasses || isMobile" href="#/view-live-classes">
+    <a class="has-tip radius">
+      <i class="v2-icon-classes"> </i>
+    </a>
+    <span>Classes</span>
+  </li>
+
+  <li class="curriculum ng-hide" ui-sref="v2-curriculum" ui-sref-active="active" ng-show="isTeacher &amp;&amp; !disableModule.curriculum &amp;&amp; courseGradeIds.length > 0" href="#/view-lessons">
+    <a class="has-tip radius">
+      <i class="v2-icon-lessons"> </i>
+    </a>
+    <span>Lessons</span>
+  </li>
+
+  <li class="curriculum" ui-sref="v2-curriculum" ui-sref-active="active" ng-show="!isDataEntry &amp;&amp; !isTeacher &amp;&amp; !isGuardian &amp;&amp; !disableModule.studentCurriculum &amp;&amp; courseGradeIds.length > 0" href="#/view-lessons">
+    <a class="has-tip radius">
+      <i class="v2-icon-lessons"> </i>
+    </a>
+    <span>Lessons</span>
+  </li>
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-t-tests" ng-class="{'active':(currentState.name == 'v2-t-tests') || (currentState.name == 'v2-t-view-test')}" ng-hide="disableModule.assessment || !isTeacher" href="#/view-t-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+  <li class="reports has-dropdown ng-hide active" ui-sref="v2-tests" ng-class="{'active':currentState.name.includes('test')}" ng-hide="disableModule.assessment || !isDataEntry">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+  <li class="reports has-dropdown active" ui-sref="v2-s-tests" ui-sref-active="active" ng-class="{'active':currentState.name.includes('tests') &amp;&amp; !currentState.name.includes('v2-sb-tests')}" ng-hide="disableModule.assessment || isTeacher || isDataEntry" href="#/view-s-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-questions" ui-sref-active="active" ng-class="{'active':currentState.name.indexOf('questions')>-1}" ng-hide="disableModule.assessment || !isDataEntry" href="#/view-questions">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Questions</span>
+  </li>
+
+  <li ui-sref="performanceReports" ui-sref-active="active" ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || isTeacher || isDataEntry" href="#/performance-reports" class="">
+    <a class="has-tip radius">
+      <i class="v2-icon-reports"> </i>
+    </a>
+    <span>Reports</span>
+  </li>
+
+  <li ui-sref="teacherReports" ui-sref-active="active" ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || !isTeacher || isDataEntry" ng-class="{'active':currentState.name.indexOf('reports')>-1}" href="#/reports" class="ng-hide">
+    <a class="has-tip radius">
+      <i class="v2-icon-reports"> </i>
+    </a>
+    <span>Reports</span>
+  </li>
+
+  <li class="reports has-dropdown ng-hide" ui-sref="v2-t-assignments" ng-class="{'active':currentState.name.indexOf('assignment')>-1}" ng-hide="disableModule.assignment || isDataEntry || !isTeacher || isMobile" href="#/view-t-assignments">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Assignments</span>
+  </li>
+
+  <li class="reports has-dropdown" ui-sref="v2-s-assignments" ng-class="{'active':currentState.name.indexOf('assignment')>-1}" ng-hide="disableModule.assignment || isDataEntry || isTeacher || isMobile" href="#/view-s-assignments">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Assignments</span>
+  </li>
+  <!-- ngIf: !isMobile --><li class="reports has-dropdown ng-scope" ng-if="!isMobile" ui-sref="v2-s-timeline" ng-class="{'active':currentState.name.indexOf('timeline')>-1}" ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" href="#/timeline">
+    <a class="has-tip radius">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span>Timeline</span>
+  </li><!-- end ngIf: !isMobile -->
+  <!-- ngIf: !isMobile --><li class="reports has-dropdown ng-scope ng-hide" ng-if="!isMobile" ui-sref="v2-t-timeline" ng-class="{'active':currentState.name.indexOf('timeline')>-1}" ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" href="#/t-timeline">
+    <a class="has-tip radius">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span>Timeline</span>
+  </li><!-- end ngIf: !isMobile -->
+  <li class="reports has-dropdown ng-hide" ui-sref="ar-resources" ng-class="{'active':currentState.name.indexOf('ar-resources')>-1}" ng-hide="disableModule.curriculumAr || !isTeacher || isDataEntry" href="#/ar-resources">
+    <a class="has-tip radius">
+      <img class="image ar" src="../img/icons/ar.svg">
+    </a>
+    <span>AR</span>
+  </li>
+
+  <li class="hide-for-small ng-hide" ng-click="goToCourses()" style="padding: .5rem !important" ng-show="isECUser">
+    <a class="has-tip radius">
+      <i class="v2-icon-explorer"> </i>
+    </a>
+    <span>Courses</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-home" ng-class="{'active': currentState.name.includes('v2-sb-home')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-home">
+    <a class="has-tip radius">
+      <img class="image spelling" src="../img/spelling-bee/book.svg">
+    </a>
+    <span>Book</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-learn" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active': currentState.name.includes('v2-sb-learn')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-learn">
+    <a class="has-tip radius">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span>Learn</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-quiz" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-quiz">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Quizzes</span>
+  </li>
+  <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-tests" style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.includes('sb-tests')}" ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>SpellingBee Tests</span>
+  </li>
+
+  <!-- ngIf: !isMobile --><li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()" ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+    <a class="has-tip radius">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li><!-- end ngIf: !isMobile -->
+
+  <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+      <a class="has-tip">
+        <i class="v2-icon-menu"> </i>
+      </a>
+    <span class="show-for-small-only">More</span>
+  </li>
+
+  <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+  <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+</ul>
+<div ng-show="toggleMobileNav" class="slider-bg ng-scope ng-hide" ng-click="pageSlideClose()"></div>
+<!-- ngInclude: '../v2/template/mobile-left-nav.html' --><aside ng-include="'../v2/template/mobile-left-nav.html'" ng-show="toggleMobileNav" ng-controller="CreateClassController" class="page-slide mobile-nav ng-scope ng-hide"><ul class="bottom-nav-bar ng-scope" ng-show="!isTgsbUser">
+  <li ng-show="isECUser" ng-click="pageSlideClose();goToCourses()" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-explorer"></i>
+    </a>
+    <span>Courses</span>
+  </li>
+  <li ui-sref="v2-liveClasses" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.liveclasses" href="#/view-live-classes" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-classes"> </i>
+    </a>
+    <span class="show-for-small-only">Classes</span>
+  </li>
+  <li ui-sref="v2-s-assignments" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.assignment || isTeacher || isDataEntry" href="#/view-s-assignments" class="">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Assignments</span>
+  </li>
+  <li ui-sref="v2-t-assignments" ui-sref-active="active" ng-click="pageSlideClose()" ng-hide="disableModule.assignment || !isTeacher || isDataEntry" href="#/view-t-assignments" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Assignments</span>
+  </li>
+  <li ui-sref="v2-s-timeline" ui-sref-active="active" ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" ng-click="pageSlideClose()" href="#/timeline" class="">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span class="show-for-small-only">Timeline</span>
+  </li>
+  <li ui-sref="v2-t-timeline" ui-sref-active="active" ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" ng-click="pageSlideClose()" href="#/t-timeline" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-date"> </i>
+    </a>
+    <span class="show-for-small-only">Timeline</span>
+  </li>
+  <li ui-sref="v2-sb-home" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-home" class="ng-hide">
+    <a class="exit-off-canvas">
+      <img class="image ar" src="../img/spelling-bee/book.svg">
+    </a>
+    <span class="show-for-small-only">Book</span>
+  </li>
+  <li ui-sref="v2-sb-learn" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-learn" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span class="show-for-small-only">Learn</span>
+  </li>
+  <li ui-sref="v2-sb-quiz" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-quiz" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span class="show-for-small-only">Quizzes</span>
+  </li>
+  <li ui-sref="v2-sb-tests" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher" ng-click="pageSlideClose()" href="#/v2-sb-tests" class="ng-hide">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span class="show-for-small-only">SpellingBee Tests</span>
+  </li>
+  <li ng-click="pageSlideClose();openChangePasswordDialog()">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li>
+</ul>
+
+<ul class="bottom-nav-bar ng-scope ng-hide" ng-show="isTgsbUser">
+  <li ng-click="pageSlideClose();openChangePasswordDialog()">
+    <a class="exit-off-canvas">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li>
+</ul>
+
+<div class="fs-sm-14 user-details ng-scope" ng-hide="isGuardian">
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Username:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">ind.iitstu001</div>
+  </div>
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Name:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">ind iit stu 1  i</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isTgsbUser">
+    <div class="column small-5 text-right fw-600">Class:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">12</div>
+  </div>
+  <div class="row collapse" ng-show="!isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">2.1.4</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding"></div>
+  </div>
+</div>
+
+<div class="fs-sm-14 user-details ng-scope ng-hide" ng-show="isGuardian">
+  <div class="row collapse">
+    <div class="column small-5 text-right fw-600">Students:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left">
+      <!-- ngRepeat: user in user.studentRelations -->
+    </div>
+  </div>
+  <div class="row collapse" ng-show="!isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding">2.1.4</div>
+  </div>
+  <div class="row collapse ng-hide" ng-show="isApp">
+    <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+    <div class="column small-7 text-left ng-binding"></div>
+  </div>
+</div>
+</aside>
+
+<ul class="off-canvas-list side-nav e-icon-side-nav ng-scope ng-hide" ng-show="isTgsbUser">
+  <li class="curriculum" ui-sref="v2-sb-home" ng-class="{'active': currentState.name.includes('v2-sb-home')}" href="#/v2-sb-home">
+    <a class="has-tip radius">
+      <img src="../img/spelling-bee/book.svg">
+    </a>
+    <span>Book</span>
+  </li>
+  <li class="curriculum" ui-sref="v2-sb-learn" ng-class="{'active': currentState.name.includes('v2-sb-learn')}" href="#/v2-sb-learn">
+    <a class="has-tip radius">
+      <i class="v2-icon-glossary"> </i>
+    </a>
+    <span>Learn</span>
+  </li>
+
+
+  <li class="reports has-dropdown" ui-sref="v2-sb-quiz" ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}" href="#/v2-sb-quiz">
+    <a class="has-tip radius">
+      <i class="v2-icon-assignments"> </i>
+    </a>
+    <span>Quizzes</span>
+  </li>
+
+  <li class="reports has-dropdown active" ui-sref="v2-sb-tests" ui-sref-active="active" ng-class="{'active':currentState.name.indexOf('tests')>-1}" href="#/v2-sb-tests">
+    <a class="has-tip radius">
+      <i class="v2-icon-tests"> </i>
+    </a>
+    <span>Tests</span>
+  </li>
+
+  <!-- ngIf: !isMobile --><li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()" ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+    <a class="has-tip radius">
+      <i class="v2-icon-settings"></i>
+    </a>
+    <span>Settings</span>
+  </li><!-- end ngIf: !isMobile -->
+
+  <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+    <a class="has-tip">
+      <i class="v2-icon-menu"> </i>
+    </a>
+    <span class="show-for-small-only">More</span>
+  </li>
+
+  <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+  <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+</ul>
+</div>
+
+      <div class="main-content-wrapper" style="background-color:#F9FBFC" ng-class="{'full':hideLeftNav}" ng-click="showSubMenu('');">
+
+        <div class="main-loading-view ng-hide" ng-show="loadingView">
+          <img ng-src="../img/icons/company-logo-invert.png" class="main-loading-view-logo" src="../img/icons/company-logo-invert.png">
+          <div ng-show="loadingStatus !== 'error'" class="">Loading...<i class="fa fa-spinner fa-spin"></i></div>
+          <div class="ng-hide" ng-show="loadingStatus === 'error'">
+            Loading error, press back to return to previous page
+          </div>
+        </div>
+
+        <!-- uiView:  --><div ui-view="" class="main-content-view ng-scope" ng-show="!loadingView"><div class="edex-page-wrapper ng-scope">
+  <div class="edex-page-content">
+    <div class="curriculum-select-wrapper show-for-small-only text-center">
+      <div class="curriculum-top-bar-selects-wrapper has-profile">
+        <!-- ngInclude: '../v2/template/common/curriculum-drop-down.html' --><div ng-include="'../v2/template/common/curriculum-drop-down.html'" class="ng-scope"><div class="curriculum-language-select ng-scope" ng-show="!isDataEntry &amp;&amp; !isSupervisor &amp;&amp; !isOrgUser" ng-class="{'language-enabled':selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')}">
+  <select ui-nice-select="" ng-show="!currentState.name.toLowerCase().includes('reports')" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true" ng-model="gradeId" ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in gradeOptions" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:47" selected="selected">JEE-Mains</option></select><div class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">JEE-Mains</li></ul></div>
+  <select ui-nice-select="" ng-show="currentState.name.toLowerCase().includes('reports')" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true" ng-model="gradeId" ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in reportGradeOptions" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:47" selected="selected">JEE-Mains</option></select><div class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">JEE-Mains</li></ul></div>
+  <div ng-show="selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')" class="ng-hide">
+    <select ui-nice-select="" ng-change="setCurriculumLanguage(selectedLanguage)" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-required="true" ng-model="selectedLanguage" ng-options="o.value as o.name for o in selectedLanguageOptions.options" class="language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select Language</option></select><div class="nice-select language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">Select Language</span><ul class="list"><li data-value="" class="option selected disabled">Select Language</li></ul></div>
+  </div>
+</div>
+
+
+<div ng-show="isDataEntry || isSupervisor || isOrgUser" class="ng-scope ng-hide">
+  <div class="curriculum-language-select has-grade-dropdown">
+    <select ui-nice-select="" class="data-entry-iframe curriculum ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeCurriculum(selectedGradeObj.curriculumId)" ng-required="true" ng-model="selectedGradeObj.curriculumId" ng-options="+(c.id) as (c.competitiveName || c.shortName) for c in ((dashboardType === 'D') ? reportCurriculumOptions : curriculumOptions) | filter: {competitive: true }" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:4" selected="selected">JEE-Mains</option></select><div class="nice-select data-entry-iframe curriculum ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:4" class="option selected">JEE-Mains</li></ul></div>
+    <select ui-nice-select="" class="data-entry-iframe grade ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(selectedGradeObj.gradeId)" ng-required="true" ng-model="selectedGradeObj.gradeId" ng-options="+(g.id) as (g.description + ' ' + g.number) for g in gradeOptions | filter: {curriculum: {id: selectedGradeObj.curriculumId} }:true " style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="Class 12" value="number:47" selected="selected">Class 12</option></select><div class="nice-select data-entry-iframe grade ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">Class 12</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">Class 12</li></ul></div>
+  </div>
+
+</div>
+</div>
+      </div>
+    </div>
+    <div class="columns top-banner">
+      <div class="subject-select-wrapper filter-wrapper">
+        <div class="flex align-items-center mb-1r">
+          <h4>Tests</h4>
+          <div class="tests-toggle" ng-show="selectedCourseGrade.isCompetitive">
+            <input id="radio-1" class="toggle toggle-left" name="toggle" type="radio" ng-checked="!showMockTests" ng-click="toggleAssessmentType('teacher')">
+            <label for="radio-1" class="toggle-btn">Subject</label>
+            <input id="radio-2" class="toggle toggle-right" name="toggle" type="radio" ng-checked="showMockTests" ng-click="toggleAssessmentType('mock')" checked="checked">
+            <label for="radio-2" class="toggle-btn">Mock</label>
+            <span class="glider"></span>
+          </div>
+        </div>
+        <div class="curriculum-top-bar-selects-wrapper">
+          <!-- ngInclude: '../v2/template/common/curriculum-drop-down.html' --><div ng-include="'../v2/template/common/curriculum-drop-down.html'" class="ng-scope"><div class="curriculum-language-select ng-scope" ng-show="!isDataEntry &amp;&amp; !isSupervisor &amp;&amp; !isOrgUser" ng-class="{'language-enabled':selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')}">
+  <select ui-nice-select="" ng-show="!currentState.name.toLowerCase().includes('reports')" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true" ng-model="gradeId" ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in gradeOptions" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:47" selected="selected">JEE-Mains</option></select><div class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required curriculum-grade-dropdown" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">JEE-Mains</li></ul></div>
+  <select ui-nice-select="" ng-show="currentState.name.toLowerCase().includes('reports')" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(gradeId)" ng-required="true" ng-model="gradeId" ng-options="g.id as ((g.curriculum.competitive ? g.curriculum.competitiveName : g.curriculum.shortName) + ((g.number !== 12 || g.curriculum.competitive === false)? ('-' + g.number) : '')) for g in reportGradeOptions" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:47" selected="selected">JEE-Mains</option></select><div class="nice-select ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-hide curriculum-grade-dropdown" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">JEE-Mains</li></ul></div>
+  <div ng-show="selectedLanguageOptions.enabled &amp;&amp; (currentState.name == 'v2-curriculum')" class="ng-hide">
+    <select ui-nice-select="" ng-change="setCurriculumLanguage(selectedLanguage)" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-required="true" ng-model="selectedLanguage" ng-options="o.value as o.name for o in selectedLanguageOptions.options" class="language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select Language</option></select><div class="nice-select language ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">Select Language</span><ul class="list"><li data-value="" class="option selected disabled">Select Language</li></ul></div>
+  </div>
+</div>
+
+
+<div ng-show="isDataEntry || isSupervisor || isOrgUser" class="ng-scope ng-hide">
+  <div class="curriculum-language-select has-grade-dropdown">
+    <select ui-nice-select="" class="data-entry-iframe curriculum ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeCurriculum(selectedGradeObj.curriculumId)" ng-required="true" ng-model="selectedGradeObj.curriculumId" ng-options="+(c.id) as (c.competitiveName || c.shortName) for c in ((dashboardType === 'D') ? reportCurriculumOptions : curriculumOptions) | filter: {competitive: true }" style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="JEE-Mains" value="number:4" selected="selected">JEE-Mains</option></select><div class="nice-select data-entry-iframe curriculum ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">JEE-Mains</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:4" class="option selected">JEE-Mains</li></ul></div>
+    <select ui-nice-select="" class="data-entry-iframe grade ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" ng-class="{'curriculum-grade-dropdown' : !isMobile}" ng-change="onChangeGrade(selectedGradeObj.gradeId)" ng-required="true" ng-model="selectedGradeObj.gradeId" ng-options="+(g.id) as (g.description + ' ' + g.number) for g in gradeOptions | filter: {curriculum: {id: selectedGradeObj.curriculumId} }:true " style="display: none;" required="required"><option value="" disabled="disabled" selected="selected" class="">Select</option><option label="Class 12" value="number:47" selected="selected">Class 12</option></select><div class="nice-select data-entry-iframe grade ng-pristine ng-untouched ng-valid ng-isolate-scope curriculum-grade-dropdown ng-not-empty ng-valid-required" tabindex="0"><span class="current">Class 12</span><ul class="list"><li data-value="" class="option disabled">Select</li><li data-value="number:47" class="option selected">Class 12</li></ul></div>
+  </div>
+
+</div>
+</div>
+        </div>
+        <div class="has-create-btn subject-wrapper ng-hide" ng-show="!showMockTests">
+          <ul>
+            <!-- ngRepeat: subInfo in subjects | orderBy: 'subject.name' --><li ng-repeat="subInfo in subjects | orderBy: 'subject.name'" ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}" class="ng-scope">
+              <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-0" class="ng-binding">
+                Chemistry
+              </div>
+            </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' --><li ng-repeat="subInfo in subjects | orderBy: 'subject.name'" ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}" class="ng-scope active">
+              <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-1" class="ng-binding">
+                Mathematics
+              </div>
+            </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' --><li ng-repeat="subInfo in subjects | orderBy: 'subject.name'" ng-class="{'active': subject.id == subInfo.subject.id, 'more-subjects':subjects.length > 3}" class="ng-scope">
+              <div ng-click="setSelectedSubject(subInfo.subject); scrollSelected($index)" id="S-2" class="ng-binding">
+                Physics
+              </div>
+            </li><!-- end ngRepeat: subInfo in subjects | orderBy: 'subject.name' -->
+          </ul>
+        </div>
+        <div class="subject-wrapper" ng-show="selectedCourseGrade.isCompetitive &amp;&amp; showMockTests">
+          <ul>
+            <!-- ngRepeat: item in testTypes --><li ng-repeat="item in testTypes" ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}" ng-click="filterByTestType(item.value, false, $index)" id="T-0" class="ng-scope more-subjects">
+              <div class="ng-binding">
+                Part Tests
+              </div>
+            </li><!-- end ngRepeat: item in testTypes --><li ng-repeat="item in testTypes" ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}" ng-click="filterByTestType(item.value, false, $index)" id="T-1" class="ng-scope more-subjects active">
+              <div class="ng-binding">
+                Full Tests
+              </div>
+            </li><!-- end ngRepeat: item in testTypes --><li ng-repeat="item in testTypes" ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}" ng-click="filterByTestType(item.value, false, $index)" id="T-2" class="ng-scope more-subjects">
+              <div class="ng-binding">
+                Grand Tests
+              </div>
+            </li><!-- end ngRepeat: item in testTypes --><li ng-repeat="item in testTypes" ng-class="{'active': selectedTestType === item.value, 'more-subjects':testTypes.length > 3}" ng-click="filterByTestType(item.value, false, $index)" id="T-3" class="ng-scope more-subjects">
+              <div class="ng-binding">
+                Advanced Tests
+              </div>
+            </li><!-- end ngRepeat: item in testTypes -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="columns assignment-list-filter">
+      <!-- Teacher Assessments -->
+      <div class="assignment-filter-wrapper ng-hide" ng-show="!showMockTests">
+        <div class="medium-11 large-10" style="margin: auto">
+          <ul>
+            <li ng-class="{ active: isSet(1) }" class="active">
+              <a href="" ng-click="setTab(1)" class="ng-binding">Available (0)</a>
+            </li>
+            <li ng-class="{ active: isSet(2) }">
+              <a href="" ng-click="setTab(2)" class="ng-binding">Completed (0)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="medium-11 large-10 ng-hide" style="margin: auto" ng-show="!showMockTests">
+        <div ng-show="isSet(1)" class="assignment-main-wrapper">
+          <div class="assignment-list-wrapper">
+            <!-- ngRepeat: item in availableFilters = (userAssessments | filter:availableFilter | orderBy:'publishDateTime') -->
+            <div class="no-assignment-card" ng-show="availableFilters.length === 0">
+              <h6 class="message m-0r">No Tests Found</h6>
+            </div>
+          </div>
+        </div>
+        <div ng-show="isSet(2)" class="assignment-main-wrapper ng-hide">
+          <div class="assignment-list-wrapper">
+            <!-- ngRepeat: item in completedFilters = (userAssessments | filter:completedFilter | orderBy:'-submittedDateTime') -->
+            <div class="no-assignment-card" ng-show="completedFilters.length === 0">
+              <h6 class="message m-0r">No Tests Found</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mock Tests -->
+      <div class="assignment-filter-wrapper have-toggle" ng-show="showMockTests">
+        <div class="medium-11 large-10" style="margin: auto">
+          <ul>
+            <li ng-class="{ active: isSet(1) }" class="active">
+              <a href="" ng-click="setTab(1)" class="ng-binding">Available (1)</a>
+            </li>
+            <li ng-class="{ active: isSet(2) }">
+              <a href="" ng-click="setTab(2)" class="ng-binding">Completed (0)</a>
+            </li>
+            <li ng-class="{ active: isSet(3) }" ng-show="showMockTests &amp;&amp; !isECUser" class="">
+              <a href="" ng-click="setTab(3)" class="ng-binding">Expired (0)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="medium-11 large-10" style="margin: auto" ng-show="showMockTests">
+        <div ng-show="isSet(1)" class="assignment-main-wrapper">
+          <div class="assignment-list-wrapper">
+            <!-- ngRepeat: item in mockAvailableFilters = (mockTests | filter:availableFilter | orderBy:'publishDateTime') --><!-- ngInclude: '../v2/template/student/tests/test-card.html' --><div ng-repeat="item in mockAvailableFilters = (mockTests | filter:availableFilter | orderBy:'publishDateTime')" class="assignment-card flex flex-row justify-content-between align-items-center ng-scope partial-submissions" ng-class="assessmentStateClass(item)" ng-include="'../v2/template/student/tests/test-card.html'"><div class="left-wrapper ng-scope">
+  <div class="date-time-row fs-14 fw-400 ng-binding">
+    Fri, 23 Jun .
+    01:30 AM
+  </div>
+  <div class="name-row fs-16 fw-600 ng-binding">
+    JEE MAIN MOCK TEST A1 - NEW PTN
+  </div>
+  <div class="test-data ng-hide" ng-show="item.statusId === STATUS_ID.INPROGRESS &amp;&amp; item.timeRemaining > 0">
+    <ul>
+      <li>
+        <i class="campaign-icon-pending"></i>
+        <span time-remaining="" ng-model="item.timeRemaining" class="ng-pristine ng-untouched ng-valid ng-binding ng-isolate-scope ng-not-empty">
+          On-going (Time Left: -28 hrs 0 m 18 s )
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="test-data">
+    <ul>
+      <li>
+        <i class="v2-icon-marks"></i>
+        <span class="ng-binding">
+          300  Marks
+        </span>
+      </li>
+      <li>
+        <i class="v2-icon-questions"></i>
+        <span class="ng-binding"> 90 Questions</span>
+      </li>
+      <li>
+        <i class="v2-icon-clock"></i>
+        <span class="ng-binding">
+          180 Mins
+        </span>
+      </li>
+      <!-- ngIf: !isTgsbUser && !isOrgTgsbUser --><li class="cursor-pointer ng-scope" ng-if="!isTgsbUser &amp;&amp; !isOrgTgsbUser">
+        <i class="fa fa-info-circle" ng-click="getChapters(item.assessmentId); toggleChaptersModal()"></i>
+      </li><!-- end ngIf: !isTgsbUser && !isOrgTgsbUser -->
+    </ul>
+  </div>
+  <div class="meta-info-row fs-14 fw-400 ng-binding ng-hide" ng-style="now > item.dueDateTime &amp;&amp; {'color':'red'}" ng-hide="item.statusId === STATUS_ID.SUBMITTED || item.statusId === STATUS_ID.GRADED || item.assessmentType === 'competitiveMock'">
+    Due Date:
+    ,  .
+    
+  </div>
+  <div class="meta-info-row fs-14 fw-400 ng-binding ng-hide" ng-style="item.submittedDateTime > item.dueDateTime &amp;&amp; {'color':'red'}" ng-show="item.statusId === STATUS_ID.SUBMITTED || item.statusId === STATUS_ID.GRADED">
+    Submitted On:
+    ,  .
+    
+  </div>
+</div>
+<div class="right-wrapper ng-scope" ng-class="{'edx-disabled': !allowMultipleMockTests &amp;&amp; item.statusId === STATUS_ID.NEW }" ng-hide="isGuardian">
+  <div class="action-btn ng-binding" ng-click="(allowMultipleMockTests || item.statusId !== STATUS_ID.NEW) &amp;&amp; onViewAssessment(item)" timer-check="" item-disabled="false" time="1687498200000" enable-before="0">
+    Time To Submit
+  </div>
+</div>
+<div class="right-wrapper ng-scope ng-hide" ng-show="isGuardian &amp;&amp; item.statusId === STATUS_ID.GRADED">
+  <div class="action-btn" ng-click="onViewAssessment(item)">
+    View
+  </div>
+</div>
+</div><!-- end ngRepeat: item in mockAvailableFilters = (mockTests | filter:availableFilter | orderBy:'publishDateTime') -->
+            <div class="no-assignment-card ng-hide" ng-show="mockAvailableFilters.length === 0">
+              <h6 class="message m-0r">No Tests Found</h6>
+            </div>
+          </div>
+        </div>
+        <div ng-show="isSet(2)" class="assignment-main-wrapper ng-hide">
+          <div class="assignment-list-wrapper">
+            <!-- ngRepeat: item in mockCompletedFilters = (mockTests | filter:completedFilter | orderBy:'-submittedDateTime') -->
+            <div class="no-assignment-card" ng-show="mockCompletedFilters.length === 0">
+              <h6 class="message m-0r">No Tests Found</h6>
+            </div>
+          </div>
+        </div>
+        <div ng-show="isSet(3)" class="assignment-main-wrapper ng-hide">
+          <div class="assignment-list-wrapper">
+            <!-- ngRepeat: item in mockExpiredFilters = (mockTests | filter:expiredFilter | orderBy:'-expiredDateTime') -->
+            <div class="no-assignment-card" ng-show="mockExpiredFilters.length === 0">
+              <h6 class="message m-0r">No Tests Found</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ngInclude: '../v2/template/common/chapters-info-modal.html' --><div ng-show="showChaptersList" class="custom-modal ng-scope ng-hide" ng-include="'../v2/template/common/chapters-info-modal.html'"><div class="custom-modal-backdrop ng-scope" ng-click="toggleChaptersList()"></div>
+<div class="modal-wrapper ng-scope">
+  <div class="modal-container">
+    <div class="modal-header">
+      <img src="../img/icons/company-logo.png" alt="logo" class="logo">
+    </div>
+    <div class="modal-content">
+      <div class="table-container custom-scrollbar vertical">
+        <table class="sticky-header">
+          <thead>
+          <tr>
+            <th>
+              Subject
+            </th>
+            <th>
+              Chapter
+            </th>
+            <th>
+              Questions
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- ngRepeat: chapter in chaptersList -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer text-center">
+      <div class="action-button cursor-pointer" ng-click="toggleChaptersList()">
+        close
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div ng-show="sharedUAService.showUserAssessmentViewSheet" class="slider-bg ng-scope ng-hide" ng-click="sharedUAService.closeUserAssessmentViewSheet()"></div>
+<!-- ngIf: !isMobile --><!-- ngInclude: '../v2/template/common/test-report/student-report.html' --><aside ng-include="'../v2/template/common/test-report/student-report.html'" ng-show="sharedUAService.showUserAssessmentViewSheet" ng-controller="UserAssessmentViewController" class="page-slide student-report-view ng-scope ng-hide" ng-if="!isMobile"><div class="edex-page-wrapper ng-scope" style="background-color: #F5F5F5">
+  <div class="edex-page-content" scroll-to-top-when="sharedUAService.showUserAssessmentViewSheet">
+    <div class="small-12">
+      <div class="header-tabs">
+        <div class="flex flex-row test-details">
+          <div class="cursor-pointer" ng-click="sharedUAService.closeUserAssessmentViewSheet()"><i class="v2-icon-back"></i></div>
+          <div class="flex flex-col">
+            <div class="name fw-600 ng-binding"></div>
+            <div class="date fw-500 ng-binding"> at
+              
+            </div>
+          </div>
+        </div>
+        <!-- ngIf: !isTgsbUser --><ul class="graph-table-switch ng-scope" ng-if="!isTgsbUser">
+          <li ng-class="{ active: graphTableSwitch === 'G' }" ng-click="setGraphTableSwitch('G')" class="active">
+            <a><i class="v2-icon-graph"></i> Graphs</a>
+          </li>
+          <li ng-class="{ active: graphTableSwitch === 'T' }" ng-click="setGraphTableSwitch('T')">
+            <a><i class="v2-icon-table"></i> Tables</a>
+          </li>
+        </ul><!-- end ngIf: !isTgsbUser -->
+      </div>
+      <div class="switch-content" ng-show="graphTableSwitch === 'G'">
+        <div class="overview-wrapper">
+          <div class="fs-20 fw-500 overview-title">Overview</div>
+          <div class="subject-wise-overview ng-hide" ng-show="isTgsbUser">
+            <!-- ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><div ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope">
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><div ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope">
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><div ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope">
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' -->
+          </div>
+          <div class="subject-wise-overview tabbable ng-isolate-scope" ng-show="!isTgsbUser">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+            <!-- ngRepeat: subjectDetails in userAssessment.assessment -->
+            <!-- ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><dd ng-class="{active: active, disabled: disabled}" ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope ng-isolate-scope active">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">
+                <!-- ngIf: !isAdvancedTest && !isNeetTest --><span ng-if="!isAdvancedTest &amp;&amp; !isNeetTest" class="ng-binding ng-scope"></span><!-- end ngIf: !isAdvancedTest && !isNeetTest -->
+                <!-- ngIf: isAdvancedTest -->
+                <!-- ngIf: isNeetTest -->
+              </tab-heading></a>
+</dd><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><dd ng-class="{active: active, disabled: disabled}" ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope ng-isolate-scope">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">
+                <!-- ngIf: !isAdvancedTest && !isNeetTest --><span ng-if="!isAdvancedTest &amp;&amp; !isNeetTest" class="ng-binding ng-scope"></span><!-- end ngIf: !isAdvancedTest && !isNeetTest -->
+                <!-- ngIf: isAdvancedTest -->
+                <!-- ngIf: isNeetTest -->
+              </tab-heading></a>
+</dd><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' --><dd ng-class="{active: active, disabled: disabled}" ng-repeat="subjectDetails in subjects | orderBy: 'sortOrder'" class="ng-scope ng-isolate-scope">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">
+                <!-- ngIf: !isAdvancedTest && !isNeetTest --><span ng-if="!isAdvancedTest &amp;&amp; !isNeetTest" class="ng-binding ng-scope"></span><!-- end ngIf: !isAdvancedTest && !isNeetTest -->
+                <!-- ngIf: isAdvancedTest -->
+                <!-- ngIf: isNeetTest -->
+              </tab-heading></a>
+</dd><!-- end ngRepeat: subjectDetails in subjects | orderBy: 'sortOrder' -->
+          </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs --><div class="content ng-scope active" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+              
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div>
+    </div><!-- end ngRepeat: tab in tabs --><div class="content ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+              
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div>
+    </div><!-- end ngRepeat: tab in tabs --><div class="content ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+              
+              <!-- ngInclude: '../v2/template/common/test-report/report-overview.html' --><div ng-include="'../v2/template/common/test-report/report-overview.html'" class="ng-scope"><div class="circles-wrapper ng-scope">
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor()}" class="ng-binding" style="color: rgb(255, 255, 255);"></h4>
+      <span class="show-for-medium-up ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Total marks out of  marks</span>
+      <span class="show-for-small-only fw-600 ng-binding" ng-style="{'color': getColor()}" style="color: rgb(255, 255, 255);">Out of  marks</span>
+    </div>
+    <div class="rounded"></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('correct')}" class="ng-binding" style="color: rgb(43, 194, 16);"></h4>
+      <span ng-style="{'color': getColor('correct')}" style="color: rgb(43, 194, 16);">Correct</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.c" color="#2BC210" bgcolor="#DDFAD8" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(221, 250, 216); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(43, 194, 16); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('incorrect')}" class="ng-binding" style="color: rgb(255, 96, 96);"></h4>
+      <span ng-style="{'color': getColor('incorrect')}" style="color: rgb(255, 96, 96);">Incorrect</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.ic" color="#FF6060" bgcolor="#FEE7E7" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(254, 231, 231); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(255, 96, 96); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress-label">
+      <h4 ng-style="{'color': getColor('notattempted')}" class="ng-binding" style="color: rgb(158, 158, 158);"></h4>
+      <span ng-style="{'color': getColor('notattempted')}" style="color: rgb(158, 158, 158);">Not Attempted</span>
+    </div>
+    <div class="round-progress-wrapper ng-isolate-scope" max="subjectDetails.questionCount" current="subjectDetails.na" color="#BFBFBF" bgcolor="#EFEFEF" radius="125" semi="isSemi" rounded="rounded" stroke="20" clockwise="clockwise" responsive="responsive" duration="2000" animation="easeOutCubic" offset="0" animation-delay="0" on-render="showPreciseCurrent" style="width: 100%; position: relative; padding-bottom: 100%;">
+<svg class="round-progress" xmlns="http://www.w3.org/2000/svg" role="progressbar" aria-valuemin="0" viewBox="0 0 250 250" aria-valuemax="50" aria-valuenow="0" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+<circle fill="none" cx="125" cy="125" r="115" style="stroke: rgb(239, 239, 239); stroke-width: 20px;"></circle>
+<path fill="none" transform="" d="M 125 10 A 115 115 0 0 0 125 10" style="stroke: rgb(191, 191, 191); stroke-width: 20px; stroke-linecap: round;"></path>
+<g ng-transclude="">
+    </g>
+</svg>
+</div>
+  </div>
+</div>
+<div class="details-wrapper ng-scope">
+  <!-- ngIf: subjectDetails.sectionRank && isArray(subjectDetails.sectionRank) -->
+  <div class="details-col">
+    <div class="v2-icon-percentage icon percentage"></div>
+    <div class="info">
+      <span>Percentage</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-accuracy icon accuracy"></div>
+    <div class="info">
+      <span>Accuracy</span>
+      <h6><span class="ng-binding">%</span></h6>
+    </div>
+  </div>
+  <div class="details-col">
+    <div class="v2-icon-clock icon time"></div>
+    <div class="info">
+      <span>Time Spent</span>
+      <h6><span class="ng-binding">NaN min </span></h6>
+    </div>
+  </div>
+</div>
+</div>
+            </div>
+    </div><!-- end ngRepeat: tab in tabs -->
+  </div>
+</div>
+        </div>
+        <div class="question-overview tabbable ng-isolate-scope" style="margin-top: 3rem;">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+          <dd ng-class="{active: active, disabled: disabled}" class="ng-scope ng-isolate-scope active">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">Question Analysis</tab-heading></a>
+</dd>
+          <!-- ngIf: !isTgsbUser --><dd ng-class="{active: active, disabled: disabled}" ng-if="!isTgsbUser" class="ng-scope ng-isolate-scope">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">Chapter Analysis</tab-heading></a>
+</dd><!-- end ngIf: !isTgsbUser -->
+        </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs --><div class="content ng-scope active" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+            
+            <!-- ngInclude: '../v2/template/common/test-report/question-analysis.html' --><div ng-include="'../v2/template/common/test-report/question-analysis.html'" class="question-details-wrapper ng-scope"><!-- ngIf: !isTgsbUser --><div class="subject-wrapper ng-scope" ng-if="!isTgsbUser">
+  <div class="subjects-list ng-hide" ng-show="userAssessment.isKeyAvaialble">
+    <ul ng-class="{'more-subjects': userAssessment.subjects.length > 3}" id="subjects-scroll">
+      <!-- ngRepeat: subject in userAssessment.subjects | orderBy: 'sortOrder' -->
+      <!-- ngRepeat: subject in userAssessment.subjects | orderBy: 'sortOrder' -->
+    </ul>
+  </div>
+</div><!-- end ngIf: !isTgsbUser -->
+<div class="questions-wrapper ng-scope" ng-style="isTgsbUser &amp;&amp; {'width':'100%'}">
+  <div class="questions-filter-wrapper ng-hide" ng-show="userAssessment.isKeyAvaialble">
+    <div class="questions-filter">
+      <ul id="filters-scroll">
+        <li ng-class="{ active: isSecondarySet(1) }" ng-click="setSecondaryTab(1)">
+          All Questions
+        </li>
+        <li ng-class="{ active: isSecondarySet(2) }" ng-click="setSecondaryTab(2)" class="active">
+          Correct
+        </li>
+        <li ng-class="{ active: isSecondarySet(3) }" ng-click="setSecondaryTab(3)">
+          Incorrect
+        </li>
+        <li ng-class="{ active: isSecondarySet(4) }" ng-click="setSecondaryTab(4)">
+          Not Attempted
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="questions-tab ng-hide" scroll-to-top-when="sharedUAService.showUserAssessmentViewSheet" ng-show="userAssessment.isKeyAvaialble">
+    <div class="question-list fs-14" style="margin: 0" ng-hide="(isSecondarySet(2) &amp;&amp; correctFilter.length === 0) || (isSecondarySet(3) &amp;&amp; incorrectFilter.length === 0) || (isSecondarySet(4) &amp;&amp; naFilter.length === 0)">
+      <div ng-show="isSecondarySet(1)" class="ng-hide">
+        <div class="question-item tabbable ng-isolate-scope">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+          <!-- ngRepeat: mcq in allFilter | filter: filteredQuestions -->
+        </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs -->
+  </div>
+</div>
+      </div>
+      <div ng-show="isSecondarySet(2)" class="">
+        <div class="question-item tabbable ng-isolate-scope">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+          <!-- ngRepeat: mcq in correctFilter | filter: filteredQuestions -->
+        </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs -->
+  </div>
+</div>
+      </div>
+      <div ng-show="isSecondarySet(3)" class="ng-hide">
+        <div class="question-item tabbable ng-isolate-scope">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+          <!-- ngRepeat: mcq in incorrectFilter | filter: filteredQuestions -->
+        </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs -->
+  </div>
+</div>
+      </div>
+      <div ng-show="isSecondarySet(4)" class="ng-hide">
+        <div class="question-item tabbable ng-isolate-scope">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+          <!-- ngRepeat: mcq in naFilter | filter: filteredQuestions -->
+        </dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs -->
+  </div>
+</div>
+      </div>
+    </div>
+    <!-- ngInclude: '../v2/template/common/test-report/no-questions.html' --><div class="fs-16 fs-sm-14 fw-500 ng-scope" ng-include="'../v2/template/common/test-report/no-questions.html'"><div ng-show="isSecondarySet(2) &amp;&amp; correctFilter.length === 0 " class="ng-scope ng-hide">
+  <div class="no-questions-card">
+    There are no correct questions.
+  </div>
+</div>
+<div ng-show="isSecondarySet(3) &amp;&amp; incorrectFilter.length === 0 " class="ng-scope ng-hide">
+  <div class="no-questions-card">
+    There are no incorrect questions.
+  </div>
+</div>
+<div ng-show="isSecondarySet(4) &amp;&amp; naFilter.length === 0 " class="ng-scope ng-hide">
+  <div class="no-questions-card">
+    There are no not attempted questions.
+  </div>
+</div>
+</div>
+  </div>
+
+  <div class="questions-tab" ng-show="!userAssessment.isKeyAvaialble">
+    <div class="question-list fs-14" style="margin: 0">
+      <!-- ngInclude: '../v2/template/common/test-report/key-release-message.html' --><div class="fs-16 fs-sm-14 fw-500 ng-scope" ng-include="'../v2/template/common/test-report/key-release-message.html'"><div ng-show="!userAssessment.isKeyAvaialble" class="ng-scope">
+  <div class="no-questions-card ng-binding">
+    Question Details and Keys will be available at .
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+          </div>
+    </div><!-- end ngRepeat: tab in tabs --><div class="content ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+            
+            <!-- ngInclude: '../v2/template/common/test-report/chapter-detail.html' --><div ng-include="'../v2/template/common/test-report/chapter-detail.html'" class="question-details-wrapper chapters-tab ng-scope"><div class="subject-wrapper ng-scope">
+  <div class="subjects-list">
+    <ul>
+      <!-- ngRepeat: subject in uniqueSubjects | orderBy: 'sortOrder' -->
+    </ul>
+  </div>
+</div>
+<div class="chapters-wrapper chapters-tab ng-scope">
+  <div id="S-tcl"></div>
+  <div class="chapter-card-wrapper custom-scrollbar vertical">
+    <div ng-click="sortChapters()" class="chapters-sort show-icon">
+      <span ng-class="sortReverse ? 'descending': 'ascending'" class="descending">Percentage</span>
+    </div>
+    <!-- ngRepeat: chapter in chapters | filter:filteredChapters | orderBy: propertyName:sortReverse -->
+  </div>
+</div></div>
+          </div>
+    </div><!-- end ngRepeat: tab in tabs -->
+  </div>
+</div>
+      </div>
+      <div class="switch-content ng-hide" ng-show="graphTableSwitch === 'T'">
+        <!-- ngInclude: '../v2/template/common/test-report/table-view.html' --><div ng-include="'../v2/template/common/test-report/table-view.html'" class="ng-scope"><div class="overview-wrapper ng-scope">
+  <div class="fs-20 fw-500 overview-title">Overview</div>
+  <div class="table-wrapper no-rank" ng-class="{'no-rank': !overview.sectionRank &amp;&amp; !isArray(overview.sectionRank)}">
+    <div class="header fs-12 fw-500">
+      <div class="total-marks text-left">Total Marks</div>
+      <!-- ngIf: overview.sectionRank && isArray(overview.sectionRank) -->
+      <div class="percentage">Score Percentage</div>
+      <div class="question-count">
+        <div>Correct</div>
+        <div>Incorrect</div>
+        <div>Not Attempted</div>
+      </div>
+      <div class="accuracy">
+        Question Accuracy
+      </div>
+      <div class="time-spent">
+        Time Spent (min)
+      </div>
+    </div>
+    <div class="body">
+      <div ng-show="subjects.length > 1" class="subjects-wrapper">
+        <div class="subjects-details-row">
+          <div class="subjects-row">
+            <div class="heading ng-binding">All Subjects ( Questions)</div>
+            <div class="overall-marks ng-binding"> /  Marks</div>
+          </div>
+          <!-- ngIf: overview.sectionRank && isArray(overview.sectionRank) -->
+          <div class="percentage ng-binding">%</div>
+          <div class="question-count">
+            <div class="correct-count ng-binding"></div>
+            <div class="incorrect-count ng-binding"></div>
+            <div class="not-attempted-count ng-binding"></div>
+          </div>
+          <div class="accuracy ng-binding">%</div>
+          <div class="time-spent ng-binding">NaN</div>
+        </div>
+      </div>
+      <!-- ngRepeat: subject in subjects --><div class="subjects-wrapper ng-scope" ng-repeat="subject in subjects">
+        <div class="subjects-details-row">
+          <div class="subjects-row">
+            <div class="heading ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest">( Questions)</div>
+            <div class="heading ng-binding ng-hide" ng-show="isAdvancedTest"> Sec  ( Questions)
+            </div>
+            <div class="heading ng-binding ng-hide" ng-show="isNeetTest"> Sec  ( Questions)
+            </div>
+
+            <div class="overall-marks ng-binding"> /  Marks</div>
+          </div>
+          <!-- ngIf: overview.sectionRank && isArray(overview.sectionRank) -->
+          <div class="percentage ng-binding">%</div>
+          <div class="question-count">
+            <div class="correct-count ng-binding"></div>
+            <div class="incorrect-count ng-binding"></div>
+            <div class="not-attempted-count ng-binding"></div>
+          </div>
+          <div class="accuracy ng-binding">%</div>
+          <div class="time-spent ng-binding">NaN</div>
+        </div>
+      </div><!-- end ngRepeat: subject in subjects --><div class="subjects-wrapper ng-scope" ng-repeat="subject in subjects">
+        <div class="subjects-details-row">
+          <div class="subjects-row">
+            <div class="heading ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest">( Questions)</div>
+            <div class="heading ng-binding ng-hide" ng-show="isAdvancedTest"> Sec  ( Questions)
+            </div>
+            <div class="heading ng-binding ng-hide" ng-show="isNeetTest"> Sec  ( Questions)
+            </div>
+
+            <div class="overall-marks ng-binding"> /  Marks</div>
+          </div>
+          <!-- ngIf: overview.sectionRank && isArray(overview.sectionRank) -->
+          <div class="percentage ng-binding">%</div>
+          <div class="question-count">
+            <div class="correct-count ng-binding"></div>
+            <div class="incorrect-count ng-binding"></div>
+            <div class="not-attempted-count ng-binding"></div>
+          </div>
+          <div class="accuracy ng-binding">%</div>
+          <div class="time-spent ng-binding">NaN</div>
+        </div>
+      </div><!-- end ngRepeat: subject in subjects --><div class="subjects-wrapper ng-scope" ng-repeat="subject in subjects">
+        <div class="subjects-details-row">
+          <div class="subjects-row">
+            <div class="heading ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest">( Questions)</div>
+            <div class="heading ng-binding ng-hide" ng-show="isAdvancedTest"> Sec  ( Questions)
+            </div>
+            <div class="heading ng-binding ng-hide" ng-show="isNeetTest"> Sec  ( Questions)
+            </div>
+
+            <div class="overall-marks ng-binding"> /  Marks</div>
+          </div>
+          <!-- ngIf: overview.sectionRank && isArray(overview.sectionRank) -->
+          <div class="percentage ng-binding">%</div>
+          <div class="question-count">
+            <div class="correct-count ng-binding"></div>
+            <div class="incorrect-count ng-binding"></div>
+            <div class="not-attempted-count ng-binding"></div>
+          </div>
+          <div class="accuracy ng-binding">%</div>
+          <div class="time-spent ng-binding">NaN</div>
+        </div>
+      </div><!-- end ngRepeat: subject in subjects -->
+    </div>
+  </div>
+</div>
+
+<div class="question-overview tabbable ng-isolate-scope">
+  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude="">
+  <dd ng-class="{active: active, disabled: disabled}" class="ng-scope ng-isolate-scope active">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">Question Analysis</tab-heading></a>
+</dd>
+  <dd ng-class="{active: active, disabled: disabled}" class="ng-scope ng-isolate-scope">
+  <a ng-click="select()" tab-heading-transclude="" class="ng-binding"><tab-heading class="ng-scope">Chapter Analysis</tab-heading></a>
+</dd>
+</dl>
+  <div class="tabs-content" ng-class="{'vertical': vertical}">
+    <!-- ngRepeat: tab in tabs --><div class="content ng-scope active" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+    
+    <!-- ngInclude: '../v2/template/common/test-report/question-analysis-table.html' --><div ng-include="'../v2/template/common/test-report/question-analysis-table.html'" class="overview-wrapper ng-scope"><div ng-show="userAssessment.isKeyAvaialble" class="subject-wise-table ng-scope no-students ng-hide" ng-class="{'no-students': !userAssessment.studentMcqs[0].totalStudents}">
+  <div class="header">
+    <div class="question">Question #</div>
+    <div class="key">Key</div>
+    <div class="answer">Answer</div>
+    <div class="marks">Marks</div>
+    <div class="time-spent">Time Spent (sec)</div>
+    <!-- ngIf: userAssessment.studentMcqs[0].totalStudents -->
+  </div>
+  <div class="body">
+    <!-- ngRepeat: subject in subjects --><div class="question-count-wrapper ng-scope" ng-repeat="subject in subjects">
+      <div class="subject-heading text-left ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest"></div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isAdvancedTest"> Sec </div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isNeetTest"> Sec </div>
+      <!-- ngRepeat: mcq in userAssessment.studentMcqs | orderBy: 'mcq.mcqId' -->
+    </div><!-- end ngRepeat: subject in subjects --><div class="question-count-wrapper ng-scope" ng-repeat="subject in subjects">
+      <div class="subject-heading text-left ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest"></div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isAdvancedTest"> Sec </div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isNeetTest"> Sec </div>
+      <!-- ngRepeat: mcq in userAssessment.studentMcqs | orderBy: 'mcq.mcqId' -->
+    </div><!-- end ngRepeat: subject in subjects --><div class="question-count-wrapper ng-scope" ng-repeat="subject in subjects">
+      <div class="subject-heading text-left ng-binding" ng-show="!isAdvancedTest &amp;&amp; !isNeetTest"></div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isAdvancedTest"> Sec </div>
+      <div class="subject-heading text-left ng-binding ng-hide" ng-show="isNeetTest"> Sec </div>
+      <!-- ngRepeat: mcq in userAssessment.studentMcqs | orderBy: 'mcq.mcqId' -->
+    </div><!-- end ngRepeat: subject in subjects -->
+  </div>
+</div>
+<div ng-show="!userAssessment.isKeyAvaialble" class="ng-scope">
+    <!-- ngInclude: '../v2/template/common/test-report/key-release-message.html' --><div class="fs-16 fs-sm-14 fw-500 ng-scope" ng-include="'../v2/template/common/test-report/key-release-message.html'"><div ng-show="!userAssessment.isKeyAvaialble" class="ng-scope">
+  <div class="no-questions-card ng-binding">
+    Question Details and Keys will be available at .
+  </div>
+</div>
+</div>
+</div>
+</div>
+  </div>
+    </div><!-- end ngRepeat: tab in tabs --><div class="content ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active, disabled: tab.disabled}">
+      <div tab-content-transclude="tab">
+    
+    <!-- ngInclude: '../v2/template/common/test-report/chapter-detail-table.html' --><div ng-include="'../v2/template/common/test-report/chapter-detail-table.html'" class="overview-wrapper ng-scope"><div class="subject-wise-table ng-scope">
+  <div class="header">
+    <div class="chapter">Chapter</div>
+    <div class="chapter-question-count">
+      <div class="total-questions">Total Questions</div>
+      <div class="correct-count">Questions Answered Correctly</div>
+      <div class="incorrect-count">Questions Answered Incorrectly</div>
+      <div class="left-count">Questions Not Attempted</div>
+    </div>
+  </div>
+  <div class="body">
+    <!-- ngRepeat: subject in uniqueSubjects -->
+  </div>
+</div>
+</div>
+  </div>
+    </div><!-- end ngRepeat: tab in tabs -->
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+</aside><!-- end ngIf: !isMobile -->
+<!-- ngIf: isMobile -->
+</div>
+      </div>
+    <div block-ui-container="" class="block-ui-container ng-scope"><div class="block-ui-overlay"></div><div class="block-ui-message-container" aria-live="assertive" aria-atomic="true"><div class="block-ui-message block-ui-content-erudex"><img ng-src="../img/icons/company-logo-invert.png" class="top-bar-logo" src="../img/icons/company-logo-invert.png"><div>Loading...<i class="fa fa-spinner fa-spin"></i></div></div></div></div></div>
+  </div>
+</div>
+<div class="copyright-footer ng-scope ng-hide" ng-show="showPoweredBy">
+  Powered By Erudex
+</div>
+<script class="ng-scope">
+    $(document).foundation();
+</script>
+<div ng-show="notificationsSharedService.showNotificationsSheet" class="slider-bg ng-scope ng-hide" ng-click="notificationsSharedService.closeNotificationsSheet()"></div>
+<!-- ngInclude: '../common/template/view-notifications.html' --><aside ng-include="'../common/template/view-notifications.html'" ng-show="notificationsSharedService.showNotificationsSheet" ng-controller="BaseMainCtrl" class="page-slide notifications-view ng-scope ng-hide"><div class="p-1r height-100p ng-scope">
+  <form class="form-group required height-100p ng-pristine ng-valid">
+    <div class="flex flex-row align-items-center heading">
+      <i class="fa fa-bell-o" ng-click="notificationsSharedService.closeNotificationsSheet()"></i>
+      <h5 class="main-heading m-0r">
+        Notifications
+      </h5>
+    </div>
+    <div class="floating-form view custom-scrollbar vertical" scroll-to-top-when="notificationsSharedService.showNotificationsSheet">
+      <div class="form-wrapper">
+        <div class="notifications-wrapper">
+          <div class="notifications-items" ng-show="notificationsSharedService.notifications.length > 0">
+            <ul>
+              <li>
+                <div class="notifications-content">
+                  <div class="fs-12 fw-700 text-right" ng-click="notificationsSharedService.notifications.length > 0 &amp;&amp; notificationsSharedService.deleteAllNotification()">
+                    <span class="cursor-pointer">Clear All</span>
+                  </div>
+                </div>
+              </li>
+              <!-- ngRepeat: item in notificationsSharedService.notifications --><li ng-repeat="item in notificationsSharedService.notifications" ng-click="notificationsSharedService.readNotification(item)" class="ng-scope">
+                <div class="icon-wrapper new-message">
+                  <i class="fa fa-circle circle-icon" ng-show="!item.isRead"></i>
+                </div>
+                <div class="icon-wrapper">
+                  <i class="v2-icon-tests"></i>
+                </div>
+                <div class="notifications-content">
+                  <div class="fs-12 fw-500 ng-binding">
+                    23/06/2023 01:45 AM
+                  </div>
+                  <div class="fs-12 fw-400 ng-binding">
+                    Your test "JEE MAIN MOCK TEST A1 - NEW PTN" scheduled for 23-06-2023 11:00 AM is in progress. Please login into your account to start the test.
+                  </div>
+                </div>
+                <div class="icon-wrapper" ng-click="notificationsSharedService.deleteNotification($event, item._id)">
+                  <i class="fa fa-trash delete-icon"></i>
+                </div>
+              </li><!-- end ngRepeat: item in notificationsSharedService.notifications --><li ng-repeat="item in notificationsSharedService.notifications" ng-click="notificationsSharedService.readNotification(item)" class="ng-scope">
+                <div class="icon-wrapper new-message">
+                  <i class="fa fa-circle circle-icon" ng-show="!item.isRead"></i>
+                </div>
+                <div class="icon-wrapper">
+                  <i class="v2-icon-tests"></i>
+                </div>
+                <div class="notifications-content">
+                  <div class="fs-12 fw-500 ng-binding">
+                    23/06/2023 01:26 AM
+                  </div>
+                  <div class="fs-12 fw-400 ng-binding">
+                    You have a new test "JEE MAIN MOCK TEST A1 - NEW PTN" is scheduled for 23-06-2023 11:00 AM.
+                  </div>
+                </div>
+                <div class="icon-wrapper" ng-click="notificationsSharedService.deleteNotification($event, item._id)">
+                  <i class="fa fa-trash delete-icon"></i>
+                </div>
+              </li><!-- end ngRepeat: item in notificationsSharedService.notifications -->
+            </ul>
+          </div>
+          <div class="event-items fs-14 ng-hide" ng-show="notificationsSharedService.notifications.length === 0" style="margin-bottom: 1.5rem">
+            No Notifications
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="bottom-wrapper has-two-actions ng-scope">
+  <div style="margin-left: auto">
+    <div class="button" ng-click="notificationsSharedService.closeNotificationsSheet()">
+      Close
+    </div>
+  </div>
+</div>
+</aside>
+<div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"></div></body></html>

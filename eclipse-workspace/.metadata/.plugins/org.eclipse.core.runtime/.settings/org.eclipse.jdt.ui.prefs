@@ -1,0 +1,13 @@
+content_assist_favorite_static_members=org.testng.Assert.*;org.junit.Assert.*;org.junit.Assume.*;org.junit.jupiter.api.Assertions.*;org.junit.jupiter.api.Assumptions.*;org.junit.jupiter.api.DynamicContainer.*;org.junit.jupiter.api.DynamicTest.*;org.mockito.ArgumentMatchers.*;org.mockito.Mockito.*;org.assertj.core.api.Assertions.*
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="java.util.concurrent.TimeUnit"/><rhs name\="org.apache.poi.ss.usermodel.CellType"/><rhs name\="com.erudex.utils.Browsers"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="java.util.concurrent.TimeUnit"/><rhs name\="org.apache.poi.ss.usermodel.CellType"/></lhs><lhs name\="com.erudex.selenium.pages.login.LoginPage"><rhs name\="com.erudex.selenium.pages.login.LoginPage"/></lhs><lhs name\="java.io.Closeable"><rhs name\="org.apache.poi.xssf.usermodel.XSSFWorkbook"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="org.apache.poi.xssf.usermodel.XSSFWorkbook"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="org.apache.poi.xssf.usermodel.XSSFWorkbook"/></lhs><lhs name\="org.apache.poi.ss.usermodel.Workbook"><rhs name\="org.apache.poi.xssf.usermodel.XSSFWorkbook"/></lhs><lhs name\="java.util.Map"><rhs name\="java.util.HashMap"/></lhs><lhs name\="com.erudex.selenium.pages.common.PopUpPage"><rhs name\="com.erudex.selenium.pages.common.PopUpPage"/></lhs><lhs name\="com.erudex.selenium.pages.main.StudentDashBoardTest"><rhs name\="com.erudex.selenium.pages.main.StudentDashBoardTest"/></lhs><lhs name\="com.erudex.selenium.pages.student.StudentDashBoard"><rhs name\="com.erudex.selenium.pages.student.StudentDashBoard"/></lhs><lhs name\="com.erudex.selenium.pages.admin.AdminDashBoard"><rhs name\="com.erudex.selenium.pages.admin.AdminDashBoard"/></lhs><lhs name\="com.erudex.selenium.pages.dataentry.DataEntryDashBoard"><rhs name\="com.erudex.selenium.pages.dataentry.DataEntryDashBoard"/></lhs><lhs name\="com.erudex.utils.Browsers"><rhs name\="com.erudex.utils.Browsers"/></lhs></history>
+content_assist_number_of_computers=12
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-07-04T23:32:53 EDT" name="Default suite" finished-at="2023-07-04T23:33:00 EDT" duration-ms="6875">
+    <groups>
+    </groups>
+    <test started-at="2023-07-04T23:32:53 EDT" name="Default test" finished-at="2023-07-04T23:33:00 EDT" duration-ms="6875">
+      <class name="com.erudex.ra.test.login.LoginTestRA">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:53 EDT" name="setUp" finished-at="2023-07-04T23:32:53 EDT" duration-ms="31" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:55 EDT" name="testLogin" data-provider="testdata" finished-at="2023-07-04T23:32:58 EDT" duration-ms="3768" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:55 EDT" name="testLogin" data-provider="testdata" finished-at="2023-07-04T23:32:58 EDT" duration-ms="3768" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:55 EDT" name="testLogin" data-provider="testdata" finished-at="2023-07-04T23:32:58 EDT" duration-ms="3768" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="16" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTestRA.testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="14" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTestRA.testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="12" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTestRA.testLogin(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLoginWithSession" data-provider="testdata" finished-at="2023-07-04T23:32:59 EDT" duration-ms="764" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginWithSession -->
+        <test-method signature="testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLoginWithSession" data-provider="testdata" finished-at="2023-07-04T23:32:59 EDT" duration-ms="372" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginWithSession -->
+        <test-method signature="testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLoginWithSession" data-provider="testdata" finished-at="2023-07-04T23:32:59 EDT" duration-ms="736" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginWithSession -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLoginWithSession status=SUCCESS method=LoginTestRA.testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLoginWithSession status=SUCCESS method=LoginTestRA.testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:32:59 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLoginWithSession status=SUCCESS method=LoginTestRA.testLoginWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="tearDown" finished-at="2023-07-04T23:32:59 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLogoutWithSession" data-provider="testdata" finished-at="2023-07-04T23:33:00 EDT" duration-ms="711" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu002]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutWithSession -->
+        <test-method signature="testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLogoutWithSession" data-provider="testdata" finished-at="2023-07-04T23:33:00 EDT" duration-ms="342" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu001]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutWithSession -->
+        <test-method signature="testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:32:59 EDT" name="testLogoutWithSession" data-provider="testdata" finished-at="2023-07-04T23:33:00 EDT" duration-ms="347" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ind.iitstu003]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@22b97bf]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutWithSession -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogoutWithSession status=SUCCESS method=LoginTestRA.testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="tearDown" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogoutWithSession status=SUCCESS method=LoginTestRA.testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="tearDown" finished-at="2023-07-04T23:33:00 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogoutWithSession status=SUCCESS method=LoginTestRA.testLogoutWithSession(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="tearDown" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testNavToLoginPage()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="testNavToLoginPage" finished-at="2023-07-04T23:33:00 EDT" duration-ms="178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavToLoginPage -->
+        <test-method is-config="true" signature="getTestExecutionTime(org.testng.ITestResult)[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="getTestExecutionTime" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testNavToLoginPage status=SUCCESS method=LoginTestRA.testNavToLoginPage()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestExecutionTime -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.erudex.ra.test.login.LoginTestRA@78a8978a]" started-at="2023-07-04T23:33:00 EDT" name="tearDown" finished-at="2023-07-04T23:33:00 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.erudex.ra.test.login.LoginTestRA -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,102 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginPage {
+    private ChromeDriver driver;
+
+    @FindBy(id = "username")
+    @CacheLookup
+    private WebElement usernameField;
+
+    @FindBy(id = "password")
+    @CacheLookup
+    private WebElement passwordField;
+
+    @FindBy(name = "login")
+    @CacheLookup
+    private WebElement loginButton;
+
+    private String pageLoadedText = "<title>Login</title>";
+
+    private int timeout = 10;
+
+    private String pageUrl = "https://app.erudex.com/";
+
+    public LoginPage(ChromeDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void setPasswordTextField(String password) {
+        passwordField.sendKeys(password);
+    }
+    
+
+    public void submit() {
+        loginButton.click();
+    }
+
+    /**
+     * Fill every field in the page.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage fill() {
+        setUsernameTextField("ind.data1");
+        setPasswordTextField("ind.data1");
+        return this;
+    }
+
+    public void setUsernameTextField(String username) {
+        usernameField.sendKeys(username);
+    }
+    
+   
+
+    /**
+     * Fill every field in the page and submit it to the target page.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage fillAndSubmit() {
+        fill();
+        submit();
+        return this;
+    }
+
+    /**
+     * Verify that the page has loaded completely.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage verifyPageLoaded() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getPageSource().contains(pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that the current page URL matches the expected URL.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage verifyPageUrl() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getCurrentUrl().contains(pageUrl);
+            }
+        });
+        return this;
+    }
+}

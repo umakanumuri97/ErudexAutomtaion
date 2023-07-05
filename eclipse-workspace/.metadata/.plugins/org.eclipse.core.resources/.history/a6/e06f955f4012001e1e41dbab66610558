@@ -1,0 +1,38 @@
+package com.erudex.selenium.pages.student;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class StudentDashBoard {
+	
+	private ChromeDriver studentDashBoarddriver;
+	
+	public StudentDashBoard(ChromeDriver driver) {
+        this.studentDashBoarddriver = driver;
+        PageFactory.initElements(driver, this);
+    }
+	
+	
+	
+	
+	private static boolean isDashBoardPage() {
+		boolean success = false;
+
+		// Get the title of the webpage and print it
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String title = studentDashBoarddriver.getTitle();
+		System.out.println("Title of the page is: " + title);
+
+		if (title == "Erudex App") {
+			success = true;
+		}
+
+		return success;
+	}
+
+}

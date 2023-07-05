@@ -1,0 +1,55 @@
+<nav id="topNavBar" class="tab-bar ng-scope" ng-include="'../v2/template/top-bar.html'"><nav class="tab-bar hide-for-medium-up ng-scope">
+  <!-- ngIf: showBackArrow -->
+  <!-- ngIf: !hideLeftNav --><section class="middle ng-scope" style="padding: .25rem" ng-if="!hideLeftNav">
+    <img ng-src="../img/icons/company-logo.png" alt="Erudex" src="../img/icons/company-logo.png">
+  </section><!-- end ngIf: !hideLeftNav -->
+  <section class="user-info">
+    <div class="students-select ng-hide" ng-show="isGuardian">
+      <select ui-nice-select="" ng-show="user.studentRelations.length > 1" ng-change="onChangeStudentRelation(selectedStudentRelation)" ng-required="true" ng-model="selectedStudentRelation" ng-options="(user.studentName || user.studentUserName) for user in user.studentRelations" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" required="required" style="display: none;"><option value="" disabled="disabled" selected="selected" class="">Select Student</option></select><div class="nice-select ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" tabindex="0"><span class="current">Select Student</span><ul class="list"><li data-value="" class="option selected disabled">Select Student</li></ul></div>
+      <div ng-show="user.studentRelations.length === 1" class="ng-binding ng-hide"></div>
+    </div>
+    <div ng-show="isTgsbUser" class="fs-14 ng-binding ng-hide" ng-style="hideLeftNav ? {'width': '18rem', 'text-align': 'left', 'padding': '0 35px'} : {'width': '12rem', 'text-align': 'center', 'padding': '0 2px'}" style="line-height: 1.25; width: 12rem; text-align: center; padding: 0px 2px;" ng-bind-html="pageTitle"></div>
+  </section>
+  <section class="right">
+    <i ng-click="toggleNotificationsPopover(true, true)" class="fa fa-bell-o badge-wrapper" ng-hide="isTeacher" style="padding: .5rem">
+      <span ng-show="notificationsSharedService.unreadNotificationsCount > 0" class="badge ng-binding">2</span>
+    </i>
+    <i ng-click="logout()" class="v2-icon-logout" style="padding: .25rem"></i>
+  </section>
+</nav>
+<section class="left height-100p hide-for-small-down ng-scope">
+
+  <div class="height-100p">
+    <!-- ngIf: showBackArrow -->
+    <div class="height-100p">
+      <!-- ngIf: !hideLeftNav --><a class="left top-bar-logo-wrapper ng-scope" ng-if="!hideLeftNav">
+        <img ng-src="../img/icons/company-logo.png" alt="Erudex" src="../img/icons/company-logo.png">
+      </a><!-- end ngIf: !hideLeftNav -->
+      <div class="left top-bar-divider"><span></span></div>
+      <div class="left top-bar-user-container" style="">
+        <span class="top-bar-user-name ng-binding" ng-click="showUserInfoDialog()" ng-show="!isGuardian">
+          ind iit stu 1 i <!-- ngIf: isTgsbUser -->
+        </span>
+        <div class="students-select ng-hide" ng-show="isGuardian">
+          <select ui-nice-select="" ng-show="user.studentRelations.length > 1" ng-change="onChangeStudentRelation(selectedStudentRelation)" ng-required="true" ng-model="selectedStudentRelation" ng-options="(user.studentName || user.studentUserName) for user in user.studentRelations" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" required="required" style="display: none;"><option value="" disabled="disabled" selected="selected" class="">Select Student</option></select><div class="nice-select ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-hide" tabindex="0"><span class="current">Select Student</span><ul class="list"><li data-value="" class="option selected disabled">Select Student</li></ul></div>
+          <div ng-show="user.studentRelations.length === 1" class="ng-binding ng-hide"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="middle tab-bar-section ng-scope" ng-style="isTgsbUser &amp;&amp; {'width': '20rem', 'left': '25rem'}">
+  <span class="show-for-medium-up ng-binding" ng-bind-html="pageTitle"></span>
+</section>
+<!-- ngIf: !hideLeftNav --><section class="right height-100p hide-for-small-down ng-scope" ng-if="!hideLeftNav">
+  <a class="right top-bar-icon ng-scope" ng-click="logout()" tooltip="Logout" tooltip-placement="left" tooltip-animation="false">
+    <i class="v2-icon-logout"></i>
+  </a>
+  <a class="right top-bar-icon ng-scope" ng-hide="isTeacher" ng-click="toggleNotificationsPopover(true, true)" tooltip="Notifications" tooltip-placement="left" tooltip-animation="false">
+    <i class="fa fa-bell-o badge-wrapper">
+      <span ng-show="notificationsSharedService.unreadNotificationsCount > 0" class="badge ng-binding">2</span>
+    </i>
+  </a>
+</section><!-- end ngIf: !hideLeftNav -->
+<a class="exit-off-canvas ng-scope"></a>
+</nav>

@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author kanumuriuma
+ *
+ */
+module TestNGTutorial {
+}

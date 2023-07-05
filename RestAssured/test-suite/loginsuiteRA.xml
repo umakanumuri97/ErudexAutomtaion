@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Erudex Rest Assured Login API Test Suite">
+    <test name="Erudex Rest Assured  Login API  Tests" enabled="true">
+        <classes>
+            <class name="com.erudex.test.login.LoginTestRA">
+                <methods>
+                    <include name="testNavToLoginPage"/>
+                    <include name="testLogin"/>
+					<include name="testLoginWithSession"/>
+					<include name="testLogoutWithSession"/>
+                </methods>
+            </class>
+        </classes>
+    </test>    
+</suite>

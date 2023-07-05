@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Erudex Apache HTTP Login API Test Suite">
+    <test name="Erudex Apache HTTP Login API  Tests" enabled="true">
+        <classes>
+            <class name="com.erudex.test.login.LoginTestApache">
+                <methods>
+                    <include name="testNavToLoginPage"/>
+                    <include name="testLogin"/>
+					<include name="testLoginWithSession"/>
+					<include name="testLogoutWithSession"/>
+                </methods>
+            </class>
+        </classes>
+    </test>    
+</suite>

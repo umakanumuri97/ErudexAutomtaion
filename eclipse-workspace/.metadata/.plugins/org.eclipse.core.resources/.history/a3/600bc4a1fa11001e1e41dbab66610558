@@ -1,0 +1,8 @@
+package com.erudex.selenium.pages.common;
+
+
+
+public class LoginPage {
+	
+	
+}

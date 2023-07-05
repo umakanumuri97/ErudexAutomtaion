@@ -1,0 +1,4 @@
+com/erudex/selenium/pages/login/Erudex.class
+com/erudex/selenium/pages/student/StudentDashboardPage.class
+com/erudex/selenium/pages/teacher/TeacherDashboardPage.class
+com/erudex/selenium/pages/login/LoginPage.class

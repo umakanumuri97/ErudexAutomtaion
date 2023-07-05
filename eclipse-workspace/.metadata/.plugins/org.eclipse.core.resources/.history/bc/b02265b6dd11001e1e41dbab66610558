@@ -1,0 +1,44 @@
+package com.erudex.selenium.pages.login;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class DashboardPage {
+    private WebDriver driver;
+
+    public DashboardPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public boolean isDashboardPageDisplayed() {
+        WebElement dashboardTitle = driver.findElement(By.cssSelector("h1.dashboard-title"));
+        return dashboardTitle.isDisplayed();
+    }
+    private boolean isDashBoardPage() {
+        boolean success = false;
+
+        // Get the title of the webpage and print it
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String title = driver.getTitle();
+        System.out.println("Title of the page is: " + title);
+
+        if (title.equals("Erudex Data Entry")) {
+            success = true;
+        }
+
+        return success;
+    }
+
+    public String getDashboardTitle() {
+        WebElement dashboardTitle = driver.findElement(By.cssSelector("h1.dashboard-title"));
+        return dashboardTitle.getText();
+    }
+    
+}

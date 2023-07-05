@@ -1,0 +1,95 @@
+package com.erudex;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+
+import com.erudex.pages.ErudexPage;
+import com.erudex.pages.login.LoginPage;
+import com.erudex.utils.BrowserHandler;
+import com.erudex.utils.Browsers;
+import com.erudex.utils.PropReader;
+
+public class ErudexLogin {
+
+	private static final Logger logger = LogManager.getLogger(ErudexLogin.class);
+
+	public static HashMap<String, String> users = new LinkedHashMap<String, String>();
+
+	public static void main(String[] args) {
+		Properties configProperties = PropReader.loadConfigProperties();
+
+		String userDataFilePath = configProperties.getProperty("erudex.users.file");
+
+		getLoginsFromExcel(userDataFilePath);
+
+		// Create the ExecutorService and CompletionService
+		ExecutorService executor = Executors.newFixedThreadPool(users.size());
+		CompletionService<ErudexPage> completionService = new ExecutorCompletionService<>(executor);
+
+		// Iterate over the HashMap and submit tasks to the CompletionService
+		for (Map.Entry<String, String> entry : users.entrySet()) {
+			String username = entry.getKey();
+			String password = entry.getValue();
+
+			Callable<ErudexPage> task = () -> {
+				BrowserHandler browserHandler = new BrowserHandler();
+				WebDriver driver = browserHandler.getDriver(Browsers.CHROME);
+
+				logger.info("Username: " + username + ", Password: " + password);
+
+				LoginPage loginPage = new LoginPage(driver);
+				loginPage.navigateToPage();
+				loginPage.setUsername(username);
+				loginPage.setPassword(password);
+
+				ErudexPage page = loginPage.login(true);
+
+				logger.info("Username: " + username + ", Password: " + password);
+				logger.info(page.getPageTitle());
+				logger.info(page.getPageUrl());
+
+				browserHandler.closeDriver();
+
+				return page;
+			};
+
+			completionService.submit(task);
+		}
+
+		executor.shutdown();
+
+		// Process the results as they become available
+		for (int i = 0; i < users.size(); i++) {
+			try {
+				ErudexPage page = completionService.take().get();
+				// Process the page object as needed
+			} catch (Exception e) {
+				// Handle exceptions
+			}
+		}
+	}
+
+	private static void getLoginsFromExcel(String filePath) {
+		// ... existing code remains the same ...
+	}
+}

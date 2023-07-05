@@ -1,0 +1,1 @@
+{"uuid":"bc01a730-22eb-4edc-8fb2-7a3dd8ac0090","name":"Erudex Rest Assured Login API Test Suite","children":["005c6a86-02e4-4daf-8b54-4d9edbab509e"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1688528950601,"stop":1688528950609}],"afters":[],"start":1688528950567,"stop":1688529056845}

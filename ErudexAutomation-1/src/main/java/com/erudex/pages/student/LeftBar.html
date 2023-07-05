@@ -1,0 +1,380 @@
+<aside class="left-off-canvas-menu hide-for-small ng-scope" style="background-color:#FFF" ng-hide="hideLeftNav"
+  ng-include="'../v2/template/left-nav.html'" ng-click="showSubMenu('');">
+  <ul class="off-canvas-list side-nav e-icon-side-nav ng-scope" ng-show="!isTgsbUser">
+    <li class="curriculum ng-hide" ui-sref="v2-dashboard" ng-show="isDataEntry"
+      ng-class="{'active': (currentState.name.includes('dashboard') || currentState.name.includes('reports'))}"
+      href="#/dashboard">
+      <a class="has-tip radius">
+        <i class="v2-icon-home"> </i>
+      </a>
+      <span>Home</span>
+    </li>
+    <li class="curriculum ng-hide" ui-sref="v2-liveClasses" ui-sref-active="active"
+      ng-hide="disableModule.liveclasses || isMobile" href="#/view-live-classes">
+      <a class="has-tip radius">
+        <i class="v2-icon-classes"> </i>
+      </a>
+      <span>Classes</span>
+    </li>
+
+    <li class="curriculum ng-hide" ui-sref="v2-curriculum" ui-sref-active="active"
+      ng-show="isTeacher &amp;&amp; !disableModule.curriculum &amp;&amp; courseGradeIds.length > 0"
+      href="#/view-lessons">
+      <a class="has-tip radius">
+        <i class="v2-icon-lessons"> </i>
+      </a>
+      <span>Lessons</span>
+    </li>
+
+    <li class="curriculum" ui-sref="v2-curriculum" ui-sref-active="active"
+      ng-show="!isDataEntry &amp;&amp; !isTeacher &amp;&amp; !isGuardian &amp;&amp; !disableModule.studentCurriculum &amp;&amp; courseGradeIds.length > 0"
+      href="#/view-lessons">
+      <a class="has-tip radius">
+        <i class="v2-icon-lessons"> </i>
+      </a>
+      <span>Lessons</span>
+    </li>
+
+    <li class="reports has-dropdown ng-hide" ui-sref="v2-t-tests"
+      ng-class="{'active':(currentState.name == 'v2-t-tests') || (currentState.name == 'v2-t-view-test')}"
+      ng-hide="disableModule.assessment || !isTeacher" href="#/view-t-tests">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>Tests</span>
+    </li>
+    <li class="reports has-dropdown ng-hide active" ui-sref="v2-tests"
+      ng-class="{'active':currentState.name.includes('test')}" ng-hide="disableModule.assessment || !isDataEntry">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>Tests</span>
+    </li>
+    <li class="reports has-dropdown active" ui-sref="v2-s-tests" ui-sref-active="active"
+      ng-class="{'active':currentState.name.includes('tests') &amp;&amp; !currentState.name.includes('v2-sb-tests')}"
+      ng-hide="disableModule.assessment || isTeacher || isDataEntry" href="#/view-s-tests">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>Tests</span>
+    </li>
+
+
+    <li class="reports has-dropdown ng-hide" ui-sref="v2-questions" ui-sref-active="active"
+      ng-class="{'active':currentState.name.indexOf('questions')>-1}" ng-hide="disableModule.assessment || !isDataEntry"
+      href="#/view-questions">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>Questions</span>
+    </li>
+
+    <li ui-sref="performanceReports" ui-sref-active="active"
+      ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || isTeacher || isDataEntry"
+      href="#/performance-reports" class="">
+      <a class="has-tip radius">
+        <i class="v2-icon-reports"> </i>
+      </a>
+      <span>Reports</span>
+    </li>
+
+    <li ui-sref="teacherReports" ui-sref-active="active"
+      ng-hide="disableModule.mockTest || !enableMockTests || disableModule.report || !isTeacher || isDataEntry"
+      ng-class="{'active':currentState.name.indexOf('reports')>-1}" href="#/reports" class="ng-hide">
+      <a class="has-tip radius">
+        <i class="v2-icon-reports"> </i>
+      </a>
+      <span>Reports</span>
+    </li>
+
+    <li class="reports has-dropdown ng-hide" ui-sref="v2-t-assignments"
+      ng-class="{'active':currentState.name.indexOf('assignment')>-1}"
+      ng-hide="disableModule.assignment || isDataEntry || !isTeacher || isMobile" href="#/view-t-assignments">
+      <a class="has-tip radius">
+        <i class="v2-icon-assignments"> </i>
+      </a>
+      <span>Assignments</span>
+    </li>
+
+    <li class="reports has-dropdown" ui-sref="v2-s-assignments"
+      ng-class="{'active':currentState.name.indexOf('assignment')>-1}"
+      ng-hide="disableModule.assignment || isDataEntry || isTeacher || isMobile" href="#/view-s-assignments">
+      <a class="has-tip radius">
+        <i class="v2-icon-assignments"> </i>
+      </a>
+      <span>Assignments</span>
+    </li>
+    <!-- ngIf: !isMobile -->
+    <li class="reports has-dropdown ng-scope" ng-if="!isMobile" ui-sref="v2-s-timeline"
+      ng-class="{'active':currentState.name.indexOf('timeline')>-1}"
+      ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" href="#/timeline">
+      <a class="has-tip radius">
+        <i class="v2-icon-date"> </i>
+      </a>
+      <span>Timeline</span>
+    </li><!-- end ngIf: !isMobile -->
+    <!-- ngIf: !isMobile -->
+    <li class="reports has-dropdown ng-scope ng-hide" ng-if="!isMobile" ui-sref="v2-t-timeline"
+      ng-class="{'active':currentState.name.indexOf('timeline')>-1}"
+      ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" href="#/t-timeline">
+      <a class="has-tip radius">
+        <i class="v2-icon-date"> </i>
+      </a>
+      <span>Timeline</span>
+    </li><!-- end ngIf: !isMobile -->
+    <li class="reports has-dropdown ng-hide" ui-sref="ar-resources"
+      ng-class="{'active':currentState.name.indexOf('ar-resources')>-1}"
+      ng-hide="disableModule.curriculumAr || !isTeacher || isDataEntry" href="#/ar-resources">
+      <a class="has-tip radius">
+        <img class="image ar" src="../img/icons/ar.svg">
+      </a>
+      <span>AR</span>
+    </li>
+
+    <li class="hide-for-small ng-hide" ng-click="goToCourses()" style="padding: .5rem !important" ng-show="isECUser">
+      <a class="has-tip radius">
+        <i class="v2-icon-explorer"> </i>
+      </a>
+      <span>Courses</span>
+    </li>
+    <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-home"
+      ng-class="{'active': currentState.name.includes('v2-sb-home')}" ng-hide="disableModule.spellingBee || isTeacher"
+      href="#/v2-sb-home">
+      <a class="has-tip radius">
+        <img class="image spelling" src="../img/spelling-bee/book.svg">
+      </a>
+      <span>Book</span>
+    </li>
+    <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-learn"
+      style="line-height: 1.25; padding: .5rem 0" ng-class="{'active': currentState.name.includes('v2-sb-learn')}"
+      ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-learn">
+      <a class="has-tip radius">
+        <i class="v2-icon-glossary"> </i>
+      </a>
+      <span>Learn</span>
+    </li>
+    <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-quiz"
+      style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}"
+      ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-quiz">
+      <a class="has-tip radius">
+        <i class="v2-icon-assignments"> </i>
+      </a>
+      <span>Quizzes</span>
+    </li>
+    <li class="reports has-dropdown hide-for-small ng-hide" ui-sref="v2-sb-tests"
+      style="line-height: 1.25; padding: .5rem 0" ng-class="{'active':currentState.name.includes('sb-tests')}"
+      ng-hide="disableModule.spellingBee || isTeacher" href="#/v2-sb-tests">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>SpellingBee Tests</span>
+    </li>
+
+    <!-- ngIf: !isMobile -->
+    <li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()"
+      ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+      <a class="has-tip radius">
+        <i class="v2-icon-settings"></i>
+      </a>
+      <span>Settings</span>
+    </li><!-- end ngIf: !isMobile -->
+
+    <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+      <a class="has-tip">
+        <i class="v2-icon-menu"> </i>
+      </a>
+      <span class="show-for-small-only">More</span>
+    </li>
+
+    <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+    <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+  </ul>
+  <div ng-show="toggleMobileNav" class="slider-bg ng-scope ng-hide" ng-click="pageSlideClose()"></div>
+  <!-- ngInclude: '../v2/template/mobile-left-nav.html' -->
+  <aside ng-include="'../v2/template/mobile-left-nav.html'" ng-show="toggleMobileNav"
+    ng-controller="CreateClassController" class="page-slide mobile-nav ng-scope ng-hide">
+    <ul class="bottom-nav-bar ng-scope" ng-show="!isTgsbUser">
+      <li ng-show="isECUser" ng-click="pageSlideClose();goToCourses()" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-explorer"></i>
+        </a>
+        <span>Courses</span>
+      </li>
+      <li ui-sref="v2-liveClasses" ui-sref-active="active" ng-click="pageSlideClose()"
+        ng-hide="disableModule.liveclasses" href="#/view-live-classes" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-classes"> </i>
+        </a>
+        <span class="show-for-small-only">Classes</span>
+      </li>
+      <li ui-sref="v2-s-assignments" ui-sref-active="active" ng-click="pageSlideClose()"
+        ng-hide="disableModule.assignment || isTeacher || isDataEntry" href="#/view-s-assignments" class="">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-assignments"> </i>
+        </a>
+        <span class="show-for-small-only">Assignments</span>
+      </li>
+      <li ui-sref="v2-t-assignments" ui-sref-active="active" ng-click="pageSlideClose()"
+        ng-hide="disableModule.assignment || !isTeacher || isDataEntry" href="#/view-t-assignments" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-assignments"> </i>
+        </a>
+        <span class="show-for-small-only">Assignments</span>
+      </li>
+      <li ui-sref="v2-s-timeline" ui-sref-active="active"
+        ng-hide="disableModule.studentTimeline || isTeacher || isDataEntry" ng-click="pageSlideClose()"
+        href="#/timeline" class="">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-date"> </i>
+        </a>
+        <span class="show-for-small-only">Timeline</span>
+      </li>
+      <li ui-sref="v2-t-timeline" ui-sref-active="active"
+        ng-hide="disableModule.teacherTimeline || !isTeacher || isDataEntry" ng-click="pageSlideClose()"
+        href="#/t-timeline" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-date"> </i>
+        </a>
+        <span class="show-for-small-only">Timeline</span>
+      </li>
+      <li ui-sref="v2-sb-home" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher"
+        ng-click="pageSlideClose()" href="#/v2-sb-home" class="ng-hide">
+        <a class="exit-off-canvas">
+          <img class="image ar" src="../img/spelling-bee/book.svg">
+        </a>
+        <span class="show-for-small-only">Book</span>
+      </li>
+      <li ui-sref="v2-sb-learn" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher"
+        ng-click="pageSlideClose()" href="#/v2-sb-learn" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-glossary"> </i>
+        </a>
+        <span class="show-for-small-only">Learn</span>
+      </li>
+      <li ui-sref="v2-sb-quiz" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher"
+        ng-click="pageSlideClose()" href="#/v2-sb-quiz" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-assignments"> </i>
+        </a>
+        <span class="show-for-small-only">Quizzes</span>
+      </li>
+      <li ui-sref="v2-sb-tests" ui-sref-active="active" ng-hide="disableModule.spellingBee || isTeacher"
+        ng-click="pageSlideClose()" href="#/v2-sb-tests" class="ng-hide">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-tests"> </i>
+        </a>
+        <span class="show-for-small-only">SpellingBee Tests</span>
+      </li>
+      <li ng-click="pageSlideClose();openChangePasswordDialog()">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-settings"></i>
+        </a>
+        <span>Settings</span>
+      </li>
+    </ul>
+
+    <ul class="bottom-nav-bar ng-scope ng-hide" ng-show="isTgsbUser">
+      <li ng-click="pageSlideClose();openChangePasswordDialog()">
+        <a class="exit-off-canvas">
+          <i class="v2-icon-settings"></i>
+        </a>
+        <span>Settings</span>
+      </li>
+    </ul>
+
+    <div class="fs-sm-14 user-details ng-scope" ng-hide="isGuardian">
+      <div class="row collapse">
+        <div class="column small-5 text-right fw-600">Username:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding">ind.iitstu001</div>
+      </div>
+      <div class="row collapse">
+        <div class="column small-5 text-right fw-600">Name:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding">ind iit stu 1 i</div>
+      </div>
+      <div class="row collapse ng-hide" ng-show="isTgsbUser">
+        <div class="column small-5 text-right fw-600">Class:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding">12</div>
+      </div>
+      <div class="row collapse" ng-show="!isApp">
+        <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding">2.1.4</div>
+      </div>
+      <div class="row collapse ng-hide" ng-show="isApp">
+        <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding"></div>
+      </div>
+    </div>
+
+    <div class="fs-sm-14 user-details ng-scope ng-hide" ng-show="isGuardian">
+      <div class="row collapse">
+        <div class="column small-5 text-right fw-600">Students:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left">
+          <!-- ngRepeat: user in user.studentRelations -->
+        </div>
+      </div>
+      <div class="row collapse" ng-show="!isApp">
+        <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding">2.1.4</div>
+      </div>
+      <div class="row collapse ng-hide" ng-show="isApp">
+        <div class="column small-5 text-right fw-600">Version:<span class="invisible">_</span></div>
+        <div class="column small-7 text-left ng-binding"></div>
+      </div>
+    </div>
+  </aside>
+
+  <ul class="off-canvas-list side-nav e-icon-side-nav ng-scope ng-hide" ng-show="isTgsbUser">
+    <li class="curriculum" ui-sref="v2-sb-home" ng-class="{'active': currentState.name.includes('v2-sb-home')}"
+      href="#/v2-sb-home">
+      <a class="has-tip radius">
+        <img src="../img/spelling-bee/book.svg">
+      </a>
+      <span>Book</span>
+    </li>
+    <li class="curriculum" ui-sref="v2-sb-learn" ng-class="{'active': currentState.name.includes('v2-sb-learn')}"
+      href="#/v2-sb-learn">
+      <a class="has-tip radius">
+        <i class="v2-icon-glossary"> </i>
+      </a>
+      <span>Learn</span>
+    </li>
+
+
+    <li class="reports has-dropdown" ui-sref="v2-sb-quiz"
+      ng-class="{'active':currentState.name.indexOf('v2-sb-quiz')>-1}" href="#/v2-sb-quiz">
+      <a class="has-tip radius">
+        <i class="v2-icon-assignments"> </i>
+      </a>
+      <span>Quizzes</span>
+    </li>
+
+    <li class="reports has-dropdown active" ui-sref="v2-sb-tests" ui-sref-active="active"
+      ng-class="{'active':currentState.name.indexOf('tests')>-1}" href="#/v2-sb-tests">
+      <a class="has-tip radius">
+        <i class="v2-icon-tests"> </i>
+      </a>
+      <span>Tests</span>
+    </li>
+
+    <!-- ngIf: !isMobile -->
+    <li class="settings ng-scope" ng-if="!isMobile" ng-click="openChangePasswordDialog()"
+      ng-hide="disableModule.userSettings||hideOnlineStates" style="padding: .5rem !important">
+      <a class="has-tip radius">
+        <i class="v2-icon-settings"></i>
+      </a>
+      <span>Settings</span>
+    </li><!-- end ngIf: !isMobile -->
+
+    <li class="more has-dropdown show-for-small-only" ng-click="toggleSheetBtn()">
+      <a class="has-tip">
+        <i class="v2-icon-menu"> </i>
+      </a>
+      <span class="show-for-small-only">More</span>
+    </li>
+
+    <!-- Dummy dropdown to stop error messages for no-dropdown items -->
+    <li id="nop-drop" class="ng-hide f-dropdown" data-dropdown-content="" style="top: 0px;"></li>
+
+  </ul>
+</aside>

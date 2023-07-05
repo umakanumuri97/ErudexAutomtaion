@@ -1,0 +1,57 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ErudexLoginTest {
+    private static WebDriver driver;
+
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "/Users/kanumuriuma/Downloads/chromedriver_mac_arm64/chromedriver");
+
+        // Create a new instance of the Chrome driver
+        driver = new ChromeDriver();
+
+        // Launch the Erudex login page
+        driver.get("https://your_erudex_login_page");
+
+        // Perform login
+        login("ind.data1", "ind.data1");
+
+        // Verify login result
+        boolean isLoginSuccessful = isDashBoardPage();
+        if (isLoginSuccessful) {
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Login failed");
+        }
+
+        // Close the browser
+        driver.quit();
+    }
+
+    private static void login(String username, String password) {
+        
+        WebElement usernameInput = driver.findElement(By.id("username"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
+
+       
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+
+       
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+    }
+
+    private static boolean isDashBoardPage() {
+        
+        String title = driver.getTitle();
+        System.out.println("Title of the page is: " + title);
+
+        return title.equals("Erudex App");
+    }
+}

@@ -1,0 +1,86 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginPage {
+    private ChromeDriver driver;
+
+    @FindBy(id = "username")
+    @CacheLookup
+    private WebElement usernameField;
+
+    @FindBy(id = "password")
+    @CacheLookup
+    private WebElement passwordField;
+
+    @FindBy(name = "login")
+    @CacheLookup
+    private WebElement loginButton;
+
+    private String pageLoadedText = "<title>Login</title>";
+
+    private int timeout = 10;
+
+    private String pageUrl = "https://app.erudex.com/";
+
+    public LoginPage(ChromeDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void setPasswordTextField(String password) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
+        passwordField.clear();
+        passwordField.sendKeys(password);
+    }
+
+    public void submit() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+        loginButton.click();
+    }
+
+    public LoginPage fillUsername(String username) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOf(usernameField));
+        usernameField.clear();
+        usernameField.sendKeys(username);
+        return this;
+    }
+
+    public LoginPage fillPassword(String password) {
+        setPasswordTextField(password);
+        return this;
+    }
+
+    public LoginPage fillForm(String username, String password) {
+        fillUsername(username);
+        fillPassword(password);
+        return this;
+    }
+
+    public LoginPage submitLoginForm() {
+        submit();
+        return this;
+    }
+
+    public LoginPage verifyPageLoaded() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.titleContains("Login"));
+        return this;
+    }
+
+    public LoginPage verifyPageUrl() {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.urlContains(pageUrl));
+        return this;
+    }
+}

@@ -1,0 +1,56 @@
+package com.erudex.selenium.pages.login;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+    private ChromeDriver driver;
+
+    @FindBy(id = "username")
+    private WebElement usernameField;
+
+    @FindBy(id = "password")
+    private WebElement passwordField;
+
+    @FindBy(name = "login")
+    private WebElement loginButton;
+
+    public LoginPage(ChromeDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void setUsernameTextField(String username) {
+        usernameField.sendKeys(username);
+    }
+
+    public void setPasswordPasswordField(String password) {
+        passwordField.sendKeys(password);
+    }
+
+    public void submit() {
+        loginButton.click();
+    }
+    /**
+     * Fill every fields in the page.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage fill() {
+        setUsernameTextField(String usernameField);
+        setPasswordPasswordField(String password);
+        return this;
+    }
+
+    /**
+     * Fill every fields in the page and submit it to target page.
+     *
+     * @return the LoginPage class instance.
+     */
+    public LoginPage fillAndSubmit() {
+        fill();
+        return submit();
+    }
+}

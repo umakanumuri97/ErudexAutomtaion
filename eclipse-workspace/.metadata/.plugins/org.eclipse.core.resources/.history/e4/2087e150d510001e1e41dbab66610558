@@ -1,0 +1,348 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class Erudex {
+
+	public static LinkedHashMap<String, String> users = new LinkedHashMap<String, String>();
+
+	private static ChromeDriver driver = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\garla\\Downloads\\chrome\\chromedriver.exe");
+
+		System.setProperty("webdriver.chrome.driver", "/Users/kanumuriuma/Downloads/chromedriver_mac_arm64/chromedriver");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(
+				"--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+		options.addArguments("--enable-cookies");
+		options.addArguments("start-maximized");
+
+		options.addArguments("disable-infobars");
+
+		options.addArguments("--disable-extensions");
+
+		//getLoginsFromExcel("C:\\Users\\garla\\OneDrive\\Desktop\\IndusMain\\choppedUsers.xlsx");
+		getLoginsFromExcel("/Users/kanumuriuma/Downloads/choppedUsers.xlsx");
+
+		// Iterate over the HashMap and get the usernames and passwords
+		for (Map.Entry<String, String> entry : users.entrySet()) {
+			driver = new ChromeDriver(options);
+			String username = entry.getKey();
+			String password = entry.getValue();
+			System.out.println("Username: " + username + ", Password: " + password);
+			loginUser(username, password,true);
+			driver.quit();
+		}
+
+	}
+
+	public static boolean loginUser(String user, String pass, boolean abortAlreadyLoggedIn) {
+
+		driver.get("https://app.erudex.com/");
+
+		// Find the username field by its id
+		WebElement usernameField = driver.findElement(By.id("username"));
+		usernameField.click();
+		WebElement passwordField = driver.findElement(By.id("password"));
+		passwordField.click();
+
+		// Fill out the username field
+		usernameField.sendKeys(user);
+		passwordField.sendKeys(pass);
+
+		// Find the submit button by its name and click it
+		WebElement loginButton = driver.findElement(By.name("login"));
+		loginButton.click();
+
+		waitForPageLoad(3000);
+
+		if (checkAlreadyLoggedin()) {
+
+			System.out.println("Success ->> User [" + user + "] can login with password [" + pass + "]");
+
+			if (abortAlreadyLoggedIn) {
+				if (alreadyLoggedInYes()) {
+					System.out.println("Successfully Logged In and launced dashboard");
+				} else {
+					System.out.println("User Loggedin , but failed to launach dashboard");
+				}
+			}
+			else {
+				if (alreadyLoggedInNo()) {
+					System.out.println("Successfully Logged In and aborted launched dashboard");
+				} else {
+					System.out.println("User Loggedin , but failed to abort");
+				}				
+			}
+
+//		} else {
+//			if (isDashBoardPage()) {
+//				System.out.println("Success ->> User [" + user + "] can login with password [" + pass + "]");				
+//			}
+//			else {
+//				System.out.println("Failure ->> User [" + user + "] can't  login with password [" + pass + "]");
+//			}
+//		}
+//		if (user.contains("stu")) {
+//			System.out.println("*******************************************************************");
+//            WebElement usernameElement = driver.findElement(By.className("top-bar-user-name"));
+//            String elementText = usernameElement.getText();
+//            // Check if the element contains "stu"
+//            if (elementText.contains("stu")) {
+//                System.out.println("Username contains 'stu': " + user);
+//                System.out.println("Element contains 'stu': " + elementText);
+//            } else {
+//                System.out.println("Username contains 'stu', but element does not: " + user);
+//            }
+//        } else {
+//            System.out.println("Username does not contain 'stu': " + user);
+//        }
+//        } else 
+//        {
+//        if (isDashBoardPage()) {
+//            System.out.println("Success ->> User [" + user + "] can login with password [" + pass + "]");
+//        } else {
+//            System.out.println("Failure ->> User [" + user + "] can't login with password [" + pass + "]");
+//        }
+			if (user.contains("stu") || user.contains("teac") || user.contains("data") || user.contains("admin")) {
+			    WebElement usernameElement = driver.findElement(By.className("top-bar-user-name"));
+			    String elementText = usernameElement.getText();
+			    WebElement isOrgAdminElement = driver.findElement(By.xpath("//li[contains(@class, 'ng-scope') and contains(text(), 'Organization')]"));
+			    
+			    // Check if the element contains the expected substring based on the username
+			    if (user.contains("stu") && elementText.contains("stu")) {
+			        System.out.println("Username contains 'stu' and element contains 'stu': " + user);
+			        System.out.println("Element text: " + elementText);
+			        System.out.println("You are on the right student dashboard");
+			    } else if (user.contains("teac") && elementText.contains("teac")) {
+			        System.out.println("Username contains 'teac' and element contains 'teac': " + user);
+			        System.out.println("Element text: " + elementText);
+			        System.out.println("You are on the right teacher dashboard");
+			    } else if (user.contains("data") && elementText.contains("data")) {
+			    	System.out.println("Username contains 'teac' and element contains 'teac': " + user);
+			        System.out.println("Element text: " + elementText);
+			        System.out.println("You are on the right data dashboard");
+			    }
+			    else {
+			        System.out.println("Username and element mismatch for user: " + user);
+			        System.out.println("Element text: " + elementText);
+			    }
+			} else {
+			    System.out.println("Invalid username format: " + user);
+			}
+    }
+
+		return false;
+	}
+
+	// Add a delay to see the result
+	private static void waitForPageLoad(int waitTime) {
+
+		try {
+			// 1000 milliseconds = 1 second
+			Thread.sleep(waitTime);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+	private static void getLoginsFromExcel(String filePath) {
+		try {
+			FileInputStream excelFile = new FileInputStream(new File(filePath));
+			Workbook workbook = new XSSFWorkbook(excelFile);
+			Sheet datatypeSheet = workbook.getSheetAt(0);
+			Iterator<Row> iterator = datatypeSheet.iterator();
+
+			// Skip the Header Row
+			iterator.next();
+
+			while (iterator.hasNext()) {
+
+				Row currentRow = iterator.next();
+				Iterator<Cell> cellIterator = currentRow.iterator();
+
+				Cell userNameCell = currentRow.getCell(0);
+				Cell passwordCell = currentRow.getCell(1);
+
+				if (userNameCell != null && passwordCell != null) {
+					String userName = "";
+					String password = "";
+
+					if (userNameCell.getCellType() == CellType.STRING) {
+						userName = userNameCell.getStringCellValue();
+					} else if (userNameCell.getCellType() == CellType.NUMERIC) {
+						userName = String.valueOf(userNameCell.getNumericCellValue());
+					}
+
+					if (passwordCell.getCellType() == CellType.STRING) {
+						password = passwordCell.getStringCellValue();
+					} else if (passwordCell.getCellType() == CellType.NUMERIC) {
+						password = String.valueOf(passwordCell.getNumericCellValue());
+					}
+
+					users.put(userName, password);
+				}
+			}
+
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	// Message -> CSS Selector .ng-binding - "You are already logged in
+	// elsewhere.<br>Do you want to login here instead?"
+	// <p ng-bind-html="message" class="ng-binding">You are already logged in
+	// elsewhere.<br>Do you want to login here instead? (Other session will be
+	// logged out)</p>
+
+	// No Button - CSS Selector
+	// <div class="button alert radius" style="padding:0.75rem 1.5rem;"
+	// ng-click="negativeResponse()">No</div>
+
+	// Yes Button - CSS Selector
+	// <div class="button success radius" style="padding:0.75rem 1.5rem;"
+	// ng-click="positiveResponse()">Yes</div>
+
+	private static boolean checkAlreadyLoggedin() {
+
+		boolean present = false;
+		try {
+			// Find the paragraph element and get its text
+			// Message
+			String msg = "You are already logged in elsewhere.<br>Do you want to login here instead?";
+			WebElement paragraph = driver.findElement(By.cssSelector(".ng-binding"));
+			String paragraphText = paragraph.getText();
+			System.out.println("Paragraph text: " + paragraphText);
+			if (paragraphText == "You are already logged in elsewhere.<br>Do you want to login here instead?") {
+				present = true;
+			}
+		} catch (NoSuchElementException e) {
+			System.out.println("Paragraph not found.");
+		}
+
+		try {
+			// Try to find and click the "No" button
+			WebElement noButton = driver.findElement(By.cssSelector(".button.alert.radius"));
+			present = true;
+		} catch (NoSuchElementException e) {
+			System.out.println("No button not found.");
+			present = false;
+		}
+
+		try {
+			// Try to find and click the "Yes" button
+			WebElement yesButton = driver.findElement(By.cssSelector(".button.success.radius"));
+			present = true;
+		} catch (NoSuchElementException e) {
+			present = false;
+			System.out.println("Yes button not found.");
+		}
+
+		return present;
+	}
+
+	// Yes Button - CSS Selector - Should abort login and go back to login page
+	// <div class="button success radius" style="padding:0.75rem 1.5rem;"
+	// ng-click="positiveResponse()">Yes</div>
+	// ng-click="negativeResponse()">No</div>
+	private static boolean alreadyLoggedInYes() {
+
+		boolean success = false;
+		try {
+			// Try to find and click the "Yes" button
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			WebElement yesButton = driver.findElement(By.cssSelector(".button.success.radius"));
+			yesButton.click();
+			waitForPageLoad(3000);
+			if (isDashBoardPage())
+				success = true;
+		} catch (NoSuchElementException e) {
+			System.out.println("No button not found.");
+			success = false;
+		}
+		return success;
+	}
+
+	// No Button - CSS Selector - Should abort login and go back to login page
+	// <div class="button alert radius" style="padding:0.75rem 1.5rem;"
+	// ng-click="negativeResponse()">No</div>
+	private static boolean alreadyLoggedInNo() {
+
+		boolean success = false;
+		try {
+			// Try to find and click the "No" button
+			WebElement noButton = driver.findElement(By.cssSelector(".button.alert.radius"));
+			noButton.click();
+			waitForPageLoad(3000);
+			if (isLoginPage())
+				success = true;
+		} catch (NoSuchElementException e) {
+			System.out.println("No button not found.");
+			success = false;
+		}
+		return success;
+	}
+
+	// Login page title should be Login
+	// <title>Login</title>
+	private static boolean isLoginPage() {
+
+		// Get the title of the webpage and print it
+		String title = driver.getTitle();
+
+		System.out.println("Title of the page is: " + title);
+
+		if (title == "Login") {
+			return true;
+		}
+
+		return false;
+
+	}
+
+	// Dash Board
+	// <title>Erudex App</title>
+
+	private static boolean isDashBoardPage() {
+		boolean success = false;
+
+		// Get the title of the webpage and print it
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String title = driver.getTitle();
+		System.out.println("Title of the page is: " + title);
+
+		if (title == "Erudex App") {
+			success = true;
+		}
+
+		return success;
+	}
+}

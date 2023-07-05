@@ -1,0 +1,15 @@
+com/erudex/model/curriculum/Chapter$ChapterBuilder.class
+com/erudex/model/user/Organization$OrganizationBuilder.class
+com/erudex/model/user/UserReqData$UserReqDataBuilder.class
+com/erudex/model/user/Person$PersonBuilder.class
+com/erudex/model/user/UserInfo$UserInfoBuilder.class
+com/erudex/model/user/UserGrade$UserGradeBuilder.class
+com/erudex/model/user/Grade$GradeBuilder.class
+com/erudex/model/user/UserResponseData$UserResponseDataBuilder.class
+com/erudex/model/user/User$UserBuilder.class
+com/erudex/model/user/Section$SectionBuilder.class
+com/erudex/model/user/UserPreferences$UserPreferencesBuilder.class
+com/erudex/model/user/UserSection$UserSectionBuilder.class
+com/erudex/model/user/Institution$InstitutionBuilder.class
+com/erudex/model/user/UserLoginErrors$UserLoginErrorsBuilder.class
+com/erudex/model/user/SessionReqData$SessionReqDataBuilder.class
